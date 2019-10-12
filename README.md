@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/kubernetes-client/python.svg?branch=master)](https://travis-ci.com/xRocketPowerx/python-sel-dedicated)
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+ (https://img.shields.io/badge/LABEL-python-yellow)
  
 
 **Sample Python API Client for Selectel**
