@@ -1,0 +1,7207 @@
+{
+  "swagger": "2.0",
+  "basePath": "/v2",
+  "paths": {
+    "/boot/device/{resource_uuid}": {
+      "parameters": [
+        {
+          "name": "resource_uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Set boot device",
+            "schema": {
+              "$ref": "#/definitions/ResponseDevice"
+            }
+          }
+        },
+        "summary": "Set server boot template",
+        "operationId": "post_device_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Device"
+            }
+          }
+        ],
+        "tags": [
+          "Boot Manager"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Return current boot device",
+            "schema": {
+              "$ref": "#/definitions/ResponseDevice"
+            }
+          }
+        },
+        "summary": "Show server boot details",
+        "operationId": "get_device_view",
+        "tags": [
+          "Boot Manager"
+        ]
+      }
+    },
+    "/boot/os/{resource_uuid}": {
+      "parameters": [
+        {
+          "name": "resource_uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Set OS config",
+            "schema": {
+              "$ref": "#/definitions/ResponseOSConfig"
+            }
+          }
+        },
+        "summary": "Install server new OS configuration",
+        "operationId": "post_os_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/OSConfigInput"
+            }
+          }
+        ],
+        "tags": [
+          "Boot Manager"
+        ]
+      },
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ResponseOSConfig"
+            }
+          }
+        },
+        "summary": "Update OS install configuration",
+        "operationId": "patch_os_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ReinstallInput"
+            }
+          }
+        ],
+        "tags": [
+          "Boot Manager"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Return current OS config",
+            "schema": {
+              "$ref": "#/definitions/ResponseOSConfig"
+            }
+          }
+        },
+        "summary": "Show server OS details",
+        "operationId": "get_os_view",
+        "tags": [
+          "Boot Manager"
+        ]
+      }
+    },
+    "/boot/template/device": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Return list of available boot devices",
+            "schema": {
+              "$ref": "#/definitions/ResponseDeviceInfoList"
+            }
+          }
+        },
+        "summary": "List boot templates",
+        "operationId": "get_device_template_list_view",
+        "tags": [
+          "Boot Manager"
+        ]
+      }
+    },
+    "/boot/template/os": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Return list of OS templates",
+            "schema": {
+              "$ref": "#/definitions/ResponseOSTemplateList"
+            }
+          }
+        },
+        "summary": "List OS configurations",
+        "operationId": "get_os_template_list_view",
+        "tags": [
+          "Boot Manager"
+        ]
+      }
+    },
+    "/consumption/speed/location/{location_id}": {
+      "parameters": [
+        {
+          "name": "location_id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ]
+    },
+    "/consumption/speed/network/{network_uuid}": {
+      "parameters": [
+        {
+          "name": "network_uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/consumption/speed/protected/{protected_uuid}": {
+      "parameters": [
+        {
+          "name": "protected_uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/consumption/speed/resource/{resource_uuid}": {
+      "parameters": [
+        {
+          "name": "resource_uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list of speed points",
+            "schema": {
+              "$ref": "#/definitions/ResponseSpeedGraph"
+            }
+          }
+        },
+        "summary": "Get Resource speed points",
+        "operationId": "get_graph_resource_view",
+        "parameters": [
+          {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ],
+            "default": "false",
+            "in": "query",
+            "description": "Switch which port type needs to be shown",
+            "name": "local"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "min5",
+              "hour"
+            ],
+            "default": "min5",
+            "in": "query",
+            "description": "Interval to group points by",
+            "name": "interval"
+          },
+          {
+            "type": "integer",
+            "default": 1570016590,
+            "in": "query",
+            "description": "Time from which speed points will ends, Unix timestamp",
+            "name": "till"
+          },
+          {
+            "type": "integer",
+            "default": 1570012990,
+            "in": "query",
+            "description": "Time from which speed points will starts, Unix timestamp",
+            "name": "from"
+          }
+        ],
+        "tags": [
+          "Consumption"
+        ]
+      }
+    },
+    "/consumption/traffic/resource/{resource_uuid}": {
+      "parameters": [
+        {
+          "name": "resource_uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns traffic consumption data",
+            "schema": {
+              "$ref": "#/definitions/ResponseTrafficConsumption"
+            }
+          }
+        },
+        "summary": "Get traffic consumption",
+        "operationId": "get_traffic_resource_view",
+        "parameters": [
+          {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "default": 10,
+            "in": "query",
+            "description": "month to which traffic will calculated, integer",
+            "name": "month"
+          }
+        ],
+        "tags": [
+          "Consumption"
+        ]
+      }
+    },
+    "/dashboard/maintenance": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Get current maintenance status",
+            "schema": {
+              "$ref": "#/definitions/MaintenanceStatusResponse"
+            }
+          }
+        },
+        "summary": "Get current maintenance status",
+        "operationId": "get_maintenance_view",
+        "tags": [
+          "Dashboard"
+        ]
+      }
+    },
+    "/dashboard/task": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Get current active tasks",
+            "schema": {
+              "$ref": "#/definitions/ResultActiveTasks"
+            }
+          }
+        },
+        "summary": "Get current active tasks",
+        "operationId": "get_active_task_view",
+        "tags": [
+          "Dashboard"
+        ]
+      }
+    },
+    "/event": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Get event list",
+            "schema": {
+              "$ref": "#/definitions/EventResultListModel"
+            }
+          },
+          "303": {
+            "description": "Returns async result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "List events",
+        "operationId": "get_event_manager",
+        "parameters": [
+          {
+            "type": "string",
+            "in": "query",
+            "description": "Action name",
+            "name": "action_name"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "description": "Item name",
+            "name": "item_name"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "description": "Items per page",
+            "name": "item_uuid"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "description": "Staff id",
+            "name": "request_uuid"
+          },
+          {
+            "type": "integer",
+            "in": "query",
+            "description": "Items per page",
+            "name": "limit"
+          },
+          {
+            "type": "integer",
+            "in": "query",
+            "description": "Page number",
+            "name": "page"
+          }
+        ],
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "/location": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list of Location",
+            "schema": {
+              "$ref": "#/definitions/LocationResultListModel"
+            }
+          }
+        },
+        "summary": "List locations",
+        "operationId": "get_location_view",
+        "tags": [
+          "Locations"
+        ]
+      }
+    },
+    "/location/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns Location",
+            "schema": {
+              "$ref": "#/definitions/LocationResultModel"
+            }
+          }
+        },
+        "summary": "Show location info",
+        "operationId": "get_location_get_view",
+        "tags": [
+          "Locations"
+        ]
+      }
+    },
+    "/misc/name-service/name": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list of names",
+            "schema": {
+              "$ref": "#/definitions/ResponseNameListModel"
+            }
+          }
+        },
+        "summary": "Get name list",
+        "operationId": "get_name_view",
+        "parameters": [
+          {
+            "type": "array",
+            "collectionFormat": "multi",
+            "in": "query",
+            "description": "tags",
+            "name": "tags",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "type": "integer",
+            "default": 10,
+            "in": "query",
+            "description": "",
+            "name": "limit"
+          },
+          {
+            "type": "integer",
+            "default": 1,
+            "in": "query",
+            "description": "",
+            "name": "page"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "created",
+              "name"
+            ],
+            "default": "created",
+            "in": "query",
+            "description": "",
+            "name": "sort"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "default": "asc",
+            "in": "query",
+            "description": "Order direction: [\"desc\", \"asc\"]",
+            "name": "order"
+          }
+        ],
+        "tags": [
+          "Miscellaneous"
+        ]
+      }
+    },
+    "/misc/name-service/name/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns name data",
+            "schema": {
+              "$ref": "#/definitions/ResponseNameResult"
+            }
+          }
+        },
+        "summary": "Get name data",
+        "operationId": "get_name_update_view",
+        "tags": [
+          "Miscellaneous"
+        ]
+      }
+    },
+    "/misc/name-service/name/{uuid}/tag": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list of name's tags",
+            "schema": {
+              "$ref": "#/definitions/ResponseNameTagsListResult"
+            }
+          }
+        },
+        "summary": "Get list of name's tags",
+        "operationId": "get_name_tags_view",
+        "tags": [
+          "Miscellaneous"
+        ]
+      }
+    },
+    "/misc/name-service/random": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns random name",
+            "schema": {
+              "$ref": "#/definitions/ResponseNameResult"
+            }
+          }
+        },
+        "summary": "Get random name",
+        "operationId": "get_random_name_view",
+        "parameters": [
+          {
+            "type": "boolean",
+            "default": false,
+            "in": "query",
+            "description": "flag: need to return one of user's name",
+            "name": "get_user_name"
+          },
+          {
+            "type": "array",
+            "collectionFormat": "multi",
+            "in": "query",
+            "description": "tags",
+            "name": "tags",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "tags": [
+          "Miscellaneous"
+        ]
+      }
+    },
+    "/misc/name-service/tag": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list of tags",
+            "schema": {
+              "$ref": "#/definitions/ResponseTagListResult"
+            }
+          }
+        },
+        "summary": "Get tag list",
+        "operationId": "get_tag_view",
+        "parameters": [
+          {
+            "type": "integer",
+            "default": 10,
+            "in": "query",
+            "description": "",
+            "name": "limit"
+          },
+          {
+            "type": "integer",
+            "default": 1,
+            "in": "query",
+            "description": "",
+            "name": "page"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "created",
+              "name"
+            ],
+            "default": "created",
+            "in": "query",
+            "description": "",
+            "name": "sort"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "default": "asc",
+            "in": "query",
+            "description": "Order direction: [\"desc\", \"asc\"]",
+            "name": "order"
+          }
+        ],
+        "tags": [
+          "Miscellaneous"
+        ]
+      }
+    },
+    "/misc/name-service/tag/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns tag data",
+            "schema": {
+              "$ref": "#/definitions/ResponseTagResult"
+            }
+          }
+        },
+        "summary": "Get tag data",
+        "operationId": "get_tag_update_view",
+        "tags": [
+          "Miscellaneous"
+        ]
+      }
+    },
+    "/misc/name-service/tag/{uuid}/name": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list of tag's names",
+            "schema": {
+              "$ref": "#/definitions/ResponseTagNamesListResult"
+            }
+          }
+        },
+        "summary": "Get list of tag's names",
+        "operationId": "get_tag_names_view",
+        "tags": [
+          "Miscellaneous"
+        ]
+      }
+    },
+    "/misc/user-name-service/name": {
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Creates new user name",
+            "schema": {
+              "$ref": "#/definitions/ResponseUserNameResult"
+            }
+          }
+        },
+        "summary": "Create new user name",
+        "operationId": "post_user_name_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/UserNameAdd"
+            }
+          }
+        ],
+        "tags": [
+          "Miscellaneous"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list of user names",
+            "schema": {
+              "$ref": "#/definitions/ResponseUserNameListResult"
+            }
+          }
+        },
+        "summary": "Get user name list",
+        "operationId": "get_user_name_view",
+        "parameters": [
+          {
+            "type": "integer",
+            "default": 10,
+            "in": "query",
+            "description": "",
+            "name": "limit"
+          },
+          {
+            "type": "integer",
+            "default": 1,
+            "in": "query",
+            "description": "",
+            "name": "page"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "created",
+              "name"
+            ],
+            "default": "created",
+            "in": "query",
+            "description": "",
+            "name": "sort"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "default": "asc",
+            "in": "query",
+            "description": "Order direction: [\"desc\", \"asc\"]",
+            "name": "order"
+          }
+        ],
+        "tags": [
+          "Miscellaneous"
+        ]
+      }
+    },
+    "/misc/user-name-service/name/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns user name data",
+            "schema": {
+              "$ref": "#/definitions/ResponseUserNameResult"
+            }
+          }
+        },
+        "summary": "Get user name data",
+        "operationId": "get_user_name_update_view",
+        "tags": [
+          "Miscellaneous"
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Returns updated user name data",
+            "schema": {
+              "$ref": "#/definitions/ResponseUserNameResult"
+            }
+          }
+        },
+        "summary": "Update user name data",
+        "operationId": "put_user_name_update_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/UserNameUpdate"
+            }
+          }
+        ],
+        "tags": [
+          "Miscellaneous"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Delete user name",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Delete user name",
+        "operationId": "delete_user_name_update_view",
+        "tags": [
+          "Miscellaneous"
+        ]
+      }
+    },
+    "/network": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list of network",
+            "schema": {
+              "$ref": "#/definitions/NetworkListResultModel"
+            }
+          }
+        },
+        "summary": "Get Network list",
+        "operationId": "get_network_view",
+        "parameters": [
+          {
+            "type": "boolean",
+            "in": "query",
+            "description": "Shared network",
+            "name": "is_shared"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "description": "Network location",
+            "name": "location_uuid"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "description": "Network have ip for resource",
+            "name": "resource_uuid"
+          },
+          {
+            "type": "integer",
+            "in": "query",
+            "description": "Items limit",
+            "name": "limit"
+          },
+          {
+            "type": "integer",
+            "in": "query",
+            "description": "Page number",
+            "name": "page"
+          }
+        ],
+        "tags": [
+          "Network management"
+        ]
+      }
+    },
+    "/network/ipam/ip": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list ip",
+            "schema": {
+              "$ref": "#/definitions/IpResultListModel"
+            }
+          }
+        },
+        "summary": "Get Ip list",
+        "operationId": "get_ip_list_view",
+        "parameters": [
+          {
+            "type": "boolean",
+            "in": "query",
+            "description": "Shared network",
+            "name": "is_shared"
+          },
+          {
+            "type": "integer",
+            "in": "query",
+            "description": "Owner ip",
+            "name": "owner_id"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "description": "IP network",
+            "name": "network_uuid"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "description": "IP subnet",
+            "name": "subnet_uuid"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "description": "IP location",
+            "name": "location_uuid"
+          },
+          {
+            "type": "integer",
+            "in": "query",
+            "description": "Items limit",
+            "name": "limit"
+          },
+          {
+            "type": "integer",
+            "in": "query",
+            "description": "Page number",
+            "name": "page"
+          }
+        ],
+        "tags": [
+          "Network management"
+        ]
+      }
+    },
+    "/network/ipam/ip/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "summary": "Release Ip",
+        "operationId": "delete_ip_detail_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/IpReleaseModel"
+            }
+          }
+        ],
+        "tags": [
+          "Network management"
+        ]
+      }
+    },
+    "/network/ipam/subnet": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list of master subnet",
+            "schema": {
+              "$ref": "#/definitions/SubnetListResultModel"
+            }
+          }
+        },
+        "summary": "Get Subnet list",
+        "operationId": "get_subnet_view",
+        "tags": [
+          "Network management"
+        ]
+      }
+    },
+    "/network/ipam/subnet/{subnet_uuid}/ip": {
+      "parameters": [
+        {
+          "name": "subnet_uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Returns created Ip",
+            "schema": {
+              "$ref": "#/definitions/IpResultModel"
+            }
+          }
+        },
+        "summary": "Create Ip",
+        "operationId": "post_ip_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/IpAllocateModel"
+            }
+          }
+        ],
+        "tags": [
+          "Network management"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list ip",
+            "schema": {
+              "$ref": "#/definitions/IpResultListModel"
+            }
+          }
+        },
+        "summary": "Get Ip list",
+        "operationId": "get_ip_view",
+        "tags": [
+          "Network management"
+        ]
+      }
+    },
+    "/network/ipam/subnet/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns Subnet",
+            "schema": {
+              "$ref": "#/definitions/SubnetResultModel"
+            }
+          }
+        },
+        "summary": "Get Subnet",
+        "operationId": "get_subnet_detail_view",
+        "tags": [
+          "Network management"
+        ]
+      }
+    },
+    "/network/limit/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns network limit by resource_uuid",
+            "schema": {
+              "$ref": "#/definitions/NetworkLimitResultModel"
+            }
+          }
+        },
+        "summary": "Get Network Limit",
+        "operationId": "get_network_limit_view",
+        "tags": [
+          "Network management"
+        ]
+      },
+      "put": {
+        "responses": {
+          "201": {
+            "description": "Returns updated network limit",
+            "schema": {
+              "$ref": "#/definitions/NetworkLimitResultModel"
+            }
+          }
+        },
+        "summary": "Update Network Limit",
+        "operationId": "put_network_limit_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/NetworkLimitUpdateModel"
+            }
+          }
+        ],
+        "tags": [
+          "Network management"
+        ]
+      }
+    },
+    "/network/port": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns Port",
+            "schema": {
+              "$ref": "#/definitions/PortResultModel"
+            }
+          }
+        },
+        "summary": "Get Port",
+        "operationId": "get_port_view",
+        "tags": [
+          "Network management"
+        ]
+      }
+    },
+    "/network/port/hw/{hw_uuid}": {
+      "parameters": [
+        {
+          "name": "hw_uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Get Port for Hw",
+            "schema": {
+              "$ref": "#/definitions/PortResultModel"
+            }
+          }
+        },
+        "summary": "Get Port from Hw",
+        "operationId": "get_port_hw_view",
+        "tags": [
+          "Network management"
+        ]
+      }
+    },
+    "/network/port/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Apply data for Port",
+            "schema": {
+              "$ref": "#/definitions/PortResultModel"
+            }
+          },
+          "202": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Apply Port config",
+        "operationId": "post_port_detail_view",
+        "tags": [
+          "Network management"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Get Port",
+            "schema": {
+              "$ref": "#/definitions/PortResultModel"
+            }
+          }
+        },
+        "summary": "Get Port",
+        "operationId": "get_port_detail_view",
+        "tags": [
+          "Network management"
+        ]
+      }
+    },
+    "/network/port/{uuid}/network": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Set Network for Port",
+            "schema": {
+              "$ref": "#/definitions/PortListResultModel"
+            }
+          }
+        },
+        "summary": "Set Network for Port",
+        "operationId": "post_port_manager_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PortNetworkModel"
+            }
+          }
+        ],
+        "tags": [
+          "Network management"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Get Network for Port",
+            "schema": {
+              "$ref": "#/definitions/NetworkListResultModel"
+            }
+          }
+        },
+        "summary": "Get Network for Port",
+        "operationId": "get_port_manager_view",
+        "tags": [
+          "Network management"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Delete Network for Port",
+            "schema": {
+              "$ref": "#/definitions/PortListResultModel"
+            }
+          }
+        },
+        "summary": "Delete Network for Port",
+        "operationId": "delete_port_manager_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PortNetworkModel"
+            }
+          }
+        ],
+        "tags": [
+          "Network management"
+        ]
+      }
+    },
+    "/network/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns Network",
+            "schema": {
+              "$ref": "#/definitions/NetworkResultModel"
+            }
+          }
+        },
+        "summary": "Get Network",
+        "operationId": "get_network_detail_view",
+        "tags": [
+          "Network management"
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Returns Network",
+            "schema": {
+              "$ref": "#/definitions/NetworkResultModel"
+            }
+          },
+          "202": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Update network",
+        "operationId": "put_network_detail_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/NetworkUpdateModel"
+            }
+          }
+        ],
+        "tags": [
+          "Network management"
+        ]
+      }
+    },
+    "/network/{uuid}/subnet": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "201": {
+            "description": "Returns Network",
+            "schema": {
+              "$ref": "#/definitions/NetworkResultModel"
+            }
+          },
+          "202": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Add subnet to network",
+        "operationId": "post_network_subnet_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/NetworkAddSubnetModel"
+            }
+          }
+        ],
+        "tags": [
+          "Network management"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Returns Network",
+            "schema": {
+              "$ref": "#/definitions/NetworkResultModel"
+            }
+          },
+          "202": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Release subnet from network",
+        "operationId": "delete_network_subnet_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/NetworkReleaseSubnetModel"
+            }
+          }
+        ],
+        "tags": [
+          "Network management"
+        ]
+      }
+    },
+    "/plan": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list Price plan",
+            "schema": {
+              "$ref": "#/definitions/PricePlanResultListModel"
+            }
+          }
+        },
+        "summary": "List price plans",
+        "operationId": "get_price_plan_view",
+        "tags": [
+          "Price Plans"
+        ]
+      }
+    },
+    "/plan/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns Price plan",
+            "schema": {
+              "$ref": "#/definitions/PricePlanResultModel"
+            }
+          }
+        },
+        "summary": "Show price plan details",
+        "operationId": "get_price_plan_get_view",
+        "tags": [
+          "Price Plans"
+        ]
+      }
+    },
+    "/power/{resource_uuid}": {
+      "parameters": [
+        {
+          "name": "resource_uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Get Resource power state",
+            "schema": {
+              "$ref": "#/definitions/ResponsePowerStatus"
+            }
+          }
+        },
+        "summary": "Show server power state",
+        "operationId": "get_resource_power_view",
+        "tags": [
+          "Power Manager"
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Switch Resource power state",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Set server power state",
+        "operationId": "put_resource_power_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PowerSwitchStatus"
+            }
+          }
+        ],
+        "tags": [
+          "Power Manager"
+        ]
+      }
+    },
+    "/power/{resource_uuid}/console": {
+      "parameters": [
+        {
+          "name": "resource_uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Set Resource console resolution",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Set server console resolution",
+        "operationId": "post_resource_console_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ConsoleResolution"
+            }
+          }
+        ],
+        "tags": [
+          "Power Manager"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Get Resource console",
+            "schema": {
+              "$ref": "#/definitions/ResponseConsole"
+            }
+          }
+        },
+        "summary": "Show server console",
+        "operationId": "get_resource_console_view",
+        "tags": [
+          "Power Manager"
+        ]
+      }
+    },
+    "/power/{resource_uuid}/reboot": {
+      "parameters": [
+        {
+          "name": "resource_uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Reboot Resource HW",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Reboot server",
+        "operationId": "post_resource_reboot_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PowerReboot"
+            }
+          }
+        ],
+        "tags": [
+          "Power Manager"
+        ]
+      }
+    },
+    "/resource": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Returns new Resource",
+            "schema": {
+              "$ref": "#/definitions/ResourceResultModel"
+            }
+          },
+          "202": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Create resource",
+        "operationId": "post_resource_list_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ResourceAddModel"
+            }
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list of Resource",
+            "schema": {
+              "$ref": "#/definitions/ResourceResultListModel"
+            }
+          },
+          "202": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "List resources",
+        "operationId": "get_resource_list_view",
+        "parameters": [
+          {
+            "type": "integer",
+            "in": "query",
+            "description": "resource_tag_id",
+            "name": "resource_tag_id"
+          },
+          {
+            "type": "integer",
+            "in": "query",
+            "description": "Items limit",
+            "name": "limit"
+          },
+          {
+            "type": "integer",
+            "in": "query",
+            "description": "Page number",
+            "name": "page"
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      }
+    },
+    "/resource/billing/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Returns Resource",
+            "schema": {
+              "$ref": "#/definitions/ResourceResultModel"
+            }
+          },
+          "202": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Activate resource",
+        "operationId": "post_resource_billing_manage_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ResourceStartModel"
+            }
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      },
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "Returns Resource",
+            "schema": {
+              "$ref": "#/definitions/ResourceResultModel"
+            }
+          },
+          "202": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Restore resource",
+        "operationId": "patch_resource_billing_manage_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ResourceRestoreModel"
+            }
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Returns Resource",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          },
+          "202": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Cancel resource",
+        "operationId": "delete_resource_billing_manage_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ResourceCancelModel"
+            }
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      }
+    },
+    "/resource/network/billing": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Returns Resource",
+            "schema": {
+              "$ref": "#/definitions/ResourceResultModel"
+            }
+          },
+          "202": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Add and activate network resource",
+        "operationId": "post_resource_billing_network_manage_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ResourceStartNetworkModel"
+            }
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      }
+    },
+    "/resource/order/{year}": {
+      "parameters": [
+        {
+          "name": "year",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns Resource sort orders",
+            "schema": {
+              "$ref": "#/definitions/ResourceOrdersStatResultListModel"
+            }
+          }
+        },
+        "operationId": "get_resource_orders_view",
+        "tags": [
+          "Resources"
+        ]
+      }
+    },
+    "/resource/server/billing": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Returns Resource",
+            "schema": {
+              "$ref": "#/definitions/ResourceResultModel"
+            }
+          },
+          "202": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Add and activate server resource",
+        "operationId": "post_resource_billing_server_manage_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ResourceStartServerModel"
+            }
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      }
+    },
+    "/resource/serverchip/billing": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Returns Resource",
+            "schema": {
+              "$ref": "#/definitions/ResourceResultModel"
+            }
+          },
+          "202": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Add and activate serverchip resource",
+        "operationId": "post_resource_billing_serverchip_manage_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ResourceStartServerModel"
+            }
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      }
+    },
+    "/resource/tag": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Returns new ResourceTag",
+            "schema": {
+              "$ref": "#/definitions/ResourceTagResultModel"
+            }
+          }
+        },
+        "summary": "Create new user tag",
+        "operationId": "post_resource_tag_list_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ResourceTagCreateUpdateModel"
+            }
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list of ResourceTag",
+            "schema": {
+              "$ref": "#/definitions/ResourceTagResultListModel"
+            }
+          }
+        },
+        "summary": "List all user tags",
+        "operationId": "get_resource_tag_list_view",
+        "parameters": [
+          {
+            "type": "integer",
+            "in": "query",
+            "description": "Items limit",
+            "name": "limit"
+          },
+          {
+            "type": "integer",
+            "in": "query",
+            "description": "Page number",
+            "name": "page"
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      }
+    },
+    "/resource/tag/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Returns updated ResourceTag",
+            "schema": {
+              "$ref": "#/definitions/ResourceTagResultModel"
+            }
+          }
+        },
+        "summary": "Update user tag",
+        "operationId": "put_resource_tag_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ResourceTagCreateUpdateModel"
+            }
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Returns deleted ResourceTag",
+            "schema": {
+              "$ref": "#/definitions/ResourceTagResultModel"
+            }
+          }
+        },
+        "summary": "Delete user tag",
+        "operationId": "delete_resource_tag_view",
+        "tags": [
+          "Resources"
+        ]
+      }
+    },
+    "/resource/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns Resource",
+            "schema": {
+              "$ref": "#/definitions/ResourceResultModel"
+            }
+          },
+          "303": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Show resource details",
+        "operationId": "get_resource_view",
+        "tags": [
+          "Resources"
+        ]
+      },
+      "patch": {
+        "responses": {
+          "200": {
+            "description": "Returns Resource",
+            "schema": {
+              "$ref": "#/definitions/ResourceResultModel"
+            }
+          },
+          "202": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Append resource",
+        "operationId": "patch_resource_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ResourceAppendModel"
+            }
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Returns Resource",
+            "schema": {
+              "$ref": "#/definitions/ResourceResultModel"
+            }
+          },
+          "202": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Update resource",
+        "operationId": "put_resource_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ResourceUpdateModel"
+            }
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      }
+    },
+    "/resource/{uuid}/billing": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Returns Resource",
+            "schema": {
+              "$ref": "#/definitions/ResourceResultModel"
+            }
+          },
+          "202": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseModel"
+            }
+          }
+        },
+        "summary": "Add and activate additional resource",
+        "operationId": "post_resource_billing_additional_manage_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ResourceStartAdditionalModel"
+            }
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      }
+    },
+    "/resource/{uuid}/compensation": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns Resource orders",
+            "schema": {
+              "$ref": "#/definitions/ResourceOrderCompensationDetailModel"
+            }
+          }
+        },
+        "summary": "List compensation fact for Resource",
+        "operationId": "get_resource_compensation_view",
+        "tags": [
+          "Resources"
+        ]
+      }
+    },
+    "/resource/{uuid}/tag": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Returns current list of ResourceTag for the Resource",
+            "schema": {
+              "$ref": "#/definitions/ResourceTagResultListModel"
+            }
+          }
+        },
+        "summary": "Add user tag to resource",
+        "operationId": "post_resource_tag_manage_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ResourceTagManageModel"
+            }
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Returns current list of ResourceTag for the Resource",
+            "schema": {
+              "$ref": "#/definitions/ResourceTagResultListModel"
+            }
+          }
+        },
+        "summary": "Remove user tag from resource",
+        "operationId": "delete_resource_tag_manage_view",
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/ResourceTagManageModel"
+            }
+          }
+        ],
+        "tags": [
+          "Resources"
+        ]
+      }
+    },
+    "/result/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseAsyncModel"
+            }
+          },
+          "303": {
+            "description": "Return task result",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseAsyncModel"
+            }
+          },
+          "404": {
+            "description": "Return not found",
+            "schema": {
+              "$ref": "#/definitions/ResponseBaseAsyncModel"
+            }
+          }
+        },
+        "summary": "Show task details",
+        "operationId": "get_task_view",
+        "tags": [
+          "Tasks"
+        ]
+      }
+    },
+    "/service": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list of Service",
+            "schema": {
+              "$ref": "#/definitions/ResponseServiceListResult"
+            }
+          }
+        },
+        "summary": "List services",
+        "operationId": "get_service_list",
+        "parameters": [
+          {
+            "type": "string",
+            "enum": [
+              "created",
+              "name"
+            ],
+            "default": "created",
+            "in": "query",
+            "description": "",
+            "name": "sort"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "default": "asc",
+            "in": "query",
+            "description": "Order direction: [\"desc\", \"asc\"]",
+            "name": "order"
+          },
+          {
+            "type": "boolean",
+            "in": "query",
+            "description": "",
+            "name": "is_primary"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "description": "billing state",
+            "name": "state"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "default",
+              "colocation",
+              "server",
+              "serverchip",
+              "custom",
+              "rack",
+              "network",
+              "equipment",
+              "service",
+              "software"
+            ],
+            "in": "query",
+            "description": "service model",
+            "name": "model"
+          }
+        ],
+        "tags": [
+          "Services"
+        ]
+      }
+    },
+    "/service/network": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list of Network Service",
+            "schema": {
+              "$ref": "#/definitions/ResponseNetworkListResult"
+            }
+          }
+        },
+        "summary": "List network",
+        "operationId": "get_network_list",
+        "parameters": [
+          {
+            "type": "string",
+            "in": "query",
+            "description": "billing state",
+            "name": "state"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "created",
+              "name"
+            ],
+            "default": "created",
+            "in": "query",
+            "description": "",
+            "name": "sort"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "default": "asc",
+            "in": "query",
+            "description": "Order direction: [\"desc\", \"asc\"]",
+            "name": "order"
+          }
+        ],
+        "tags": [
+          "Services"
+        ]
+      }
+    },
+    "/service/network/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns Network Service",
+            "schema": {
+              "$ref": "#/definitions/ResponseNetworkResult"
+            }
+          }
+        },
+        "summary": "Show network details",
+        "operationId": "get_network",
+        "tags": [
+          "Services"
+        ]
+      }
+    },
+    "/service/server": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list of Dedicated Service",
+            "schema": {
+              "$ref": "#/definitions/ResponseServerListResult"
+            }
+          }
+        },
+        "summary": "List servers",
+        "operationId": "get_server_list",
+        "parameters": [
+          {
+            "type": "string",
+            "in": "query",
+            "description": "billing state",
+            "name": "state"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "created",
+              "name"
+            ],
+            "default": "created",
+            "in": "query",
+            "description": "",
+            "name": "sort"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "default": "asc",
+            "in": "query",
+            "description": "Order direction: [\"desc\", \"asc\"]",
+            "name": "order"
+          }
+        ],
+        "tags": [
+          "Services"
+        ]
+      }
+    },
+    "/service/server/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns Dedicated Service",
+            "schema": {
+              "$ref": "#/definitions/ResponseServerResult"
+            }
+          }
+        },
+        "summary": "Show server details",
+        "operationId": "get_server",
+        "tags": [
+          "Services"
+        ]
+      }
+    },
+    "/service/serverchip": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns list of Dedicated Service",
+            "schema": {
+              "$ref": "#/definitions/ResponseServerListResult"
+            }
+          }
+        },
+        "summary": "List chipcore servers",
+        "operationId": "get_server_chip_list",
+        "parameters": [
+          {
+            "type": "string",
+            "enum": [
+              "created",
+              "name"
+            ],
+            "default": "created",
+            "in": "query",
+            "description": "",
+            "name": "sort"
+          },
+          {
+            "type": "string",
+            "enum": [
+              "desc",
+              "asc"
+            ],
+            "default": "asc",
+            "in": "query",
+            "description": "Order direction: [\"desc\", \"asc\"]",
+            "name": "order"
+          }
+        ],
+        "tags": [
+          "Services"
+        ]
+      }
+    },
+    "/service/serverchip/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Returns LDedicated Service",
+            "schema": {
+              "$ref": "#/definitions/ResponseServerResult"
+            }
+          }
+        },
+        "summary": "Show chipcore server details",
+        "operationId": "get_server_chip",
+        "tags": [
+          "Services"
+        ]
+      }
+    },
+    "/service/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Get Service",
+            "schema": {
+              "$ref": "#/definitions/ResponseServiceResult"
+            }
+          }
+        },
+        "summary": "Show service details",
+        "operationId": "get_service",
+        "tags": [
+          "Services"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Seido User REST API",
+    "version": "2.4.8",
+    "termsOfService": "https://ds.selectel.org"
+  },
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "Dashboard",
+      "description": "Dashboard"
+    },
+    {
+      "name": "Locations",
+      "description": "Locations namespace"
+    },
+    {
+      "name": "Services",
+      "description": "Services namespace"
+    },
+    {
+      "name": "Price Plans",
+      "description": "Price plan namespace"
+    },
+    {
+      "name": "Resources",
+      "description": "Resources namespace"
+    },
+    {
+      "name": "Power Manager",
+      "description": "Power Manager namespace"
+    },
+    {
+      "name": "Boot Manager",
+      "description": "Resource Boot Manager"
+    },
+    {
+      "name": "Events",
+      "description": "Events namespace"
+    },
+    {
+      "name": "Tasks",
+      "description": "Tasks namespace"
+    },
+    {
+      "name": "Network management",
+      "description": "Network"
+    },
+    {
+      "name": "Consumption",
+      "description": "Consumption of speed and traffic"
+    },
+    {
+      "name": "Miscellaneous",
+      "description": "Miscellaneous data"
+    }
+  ],
+  "definitions": {
+    "MaintenanceStatusResponse": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/MaintenanceStatus"
+        }
+      },
+      "type": "object"
+    },
+    "MaintenanceStatus": {
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ResultActiveTasks": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ActiveTask"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ActiveTask": {
+      "properties": {
+        "progress": {
+          "type": "integer"
+        },
+        "task_name": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        }
+      },
+      "type": "object"
+    },
+    "LocationResultListModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LocationModel"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "LocationModel": {
+      "required": [
+        "enable",
+        "location_id",
+        "name",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "location_id": {
+          "type": "integer"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "dc_count": {
+          "type": "integer"
+        },
+        "enable": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "LocationResultModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/LocationModel"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseServiceListResult": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ServiceBase"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ServiceBase": {
+      "required": [
+        "available",
+        "is_order",
+        "is_preorder",
+        "is_primary",
+        "is_single_prolonged",
+        "model",
+        "name",
+        "price_collection",
+        "service_tag",
+        "setup_fee_collection",
+        "state",
+        "tags",
+        "tariff_line",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "name": {
+          "type": "string"
+        },
+        "tariff_line": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "state": {
+          "type": "string",
+          "description": "service state"
+        },
+        "available": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ServiceAvailable"
+          }
+        },
+        "is_order": {
+          "type": "boolean"
+        },
+        "is_preorder": {
+          "type": "boolean"
+        },
+        "setup_fee_collection": {
+          "$ref": "#/definitions/PriceModel"
+        },
+        "price_collection": {
+          "$ref": "#/definitions/PriceModel"
+        },
+        "service_tag": {
+          "type": "string"
+        },
+        "is_primary": {
+          "type": "boolean"
+        },
+        "is_single_prolonged": {
+          "type": "boolean"
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "is_qchange": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ServiceAvailable": {
+      "properties": {
+        "location": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "count": {
+          "type": "integer"
+        },
+        "plan_count": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ServicePlanAvailable"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ServicePlanAvailable": {
+      "properties": {
+        "plan_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "count": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "PriceModel": {
+      "required": [
+        "EUR",
+        "RUB",
+        "USD"
+      ],
+      "properties": {
+        "RUB": {
+          "$ref": "#/definitions/PricePeriodModel"
+        },
+        "EUR": {
+          "$ref": "#/definitions/PricePeriodModel"
+        },
+        "USD": {
+          "$ref": "#/definitions/PricePeriodModel"
+        }
+      },
+      "type": "object"
+    },
+    "PricePeriodModel": {
+      "properties": {
+        "year": {
+          "type": "number",
+          "minimum": 0.01
+        },
+        "day": {
+          "type": "number",
+          "minimum": 0.01
+        },
+        "month": {
+          "type": "number",
+          "minimum": 0.01
+        },
+        "hour": {
+          "type": "number",
+          "minimum": 0.01
+        }
+      },
+      "type": "object"
+    },
+    "ResponseNetworkResult": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/NetworkViewModel"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkViewModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ServiceView"
+        },
+        {
+          "required": [
+            "addition",
+            "available",
+            "is_order",
+            "is_preorder",
+            "is_primary",
+            "is_single_prolonged",
+            "model",
+            "name",
+            "price_collection",
+            "price_plan_available",
+            "primary",
+            "service_tag",
+            "setup_fee_collection",
+            "state",
+            "tags",
+            "tariff_line",
+            "uuid"
+          ],
+          "properties": {
+            "price_plan_available": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "addition": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ServiceBase"
+              }
+            },
+            "primary": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ServiceBase"
+              }
+            },
+            "uuid": {
+              "type": "string",
+              "example": "00000000-0000-0000-A000-000000000000",
+              "minLength": 36,
+              "maxLength": 36
+            },
+            "name": {
+              "type": "string"
+            },
+            "tariff_line": {
+              "type": "string"
+            },
+            "model": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "state": {
+              "type": "string",
+              "description": "service state"
+            },
+            "available": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ServiceAvailable"
+              }
+            },
+            "is_order": {
+              "type": "boolean"
+            },
+            "is_preorder": {
+              "type": "boolean"
+            },
+            "setup_fee_collection": {
+              "$ref": "#/definitions/PriceModel"
+            },
+            "price_collection": {
+              "$ref": "#/definitions/PriceModel"
+            },
+            "service_tag": {
+              "type": "string"
+            },
+            "is_primary": {
+              "type": "boolean"
+            },
+            "is_single_prolonged": {
+              "type": "boolean"
+            },
+            "quantity": {
+              "type": "integer"
+            },
+            "is_qchange": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "ServiceView": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ServiceBase"
+        },
+        {
+          "required": [
+            "addition",
+            "available",
+            "is_order",
+            "is_preorder",
+            "is_primary",
+            "is_single_prolonged",
+            "model",
+            "name",
+            "price_collection",
+            "price_plan_available",
+            "primary",
+            "service_tag",
+            "setup_fee_collection",
+            "state",
+            "tags",
+            "tariff_line",
+            "uuid"
+          ],
+          "properties": {
+            "price_plan_available": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "addition": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ServiceBase"
+              }
+            },
+            "primary": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ServiceBase"
+              }
+            },
+            "uuid": {
+              "type": "string",
+              "example": "00000000-0000-0000-A000-000000000000",
+              "minLength": 36,
+              "maxLength": 36
+            },
+            "name": {
+              "type": "string"
+            },
+            "tariff_line": {
+              "type": "string"
+            },
+            "model": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "state": {
+              "type": "string",
+              "description": "service state"
+            },
+            "available": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ServiceAvailable"
+              }
+            },
+            "is_order": {
+              "type": "boolean"
+            },
+            "is_preorder": {
+              "type": "boolean"
+            },
+            "setup_fee_collection": {
+              "$ref": "#/definitions/PriceModel"
+            },
+            "price_collection": {
+              "$ref": "#/definitions/PriceModel"
+            },
+            "service_tag": {
+              "type": "string"
+            },
+            "is_primary": {
+              "type": "boolean"
+            },
+            "is_single_prolonged": {
+              "type": "boolean"
+            },
+            "quantity": {
+              "type": "integer"
+            },
+            "is_qchange": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "ResponseNetworkListResult": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NetworkViewModel"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ResponseServiceResult": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/ServiceView"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseServerListResult": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ServerViewModel"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ServerViewModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ServiceView"
+        },
+        {
+          "required": [
+            "addition",
+            "available",
+            "config_name",
+            "cpu",
+            "disk",
+            "is_order",
+            "is_preorder",
+            "is_primary",
+            "is_single_prolonged",
+            "model",
+            "name",
+            "price_collection",
+            "price_plan_available",
+            "primary",
+            "ram",
+            "service_tag",
+            "setup_fee_collection",
+            "state",
+            "tags",
+            "tariff_line",
+            "uuid"
+          ],
+          "properties": {
+            "config_name": {
+              "type": "string"
+            },
+            "cpu": {
+              "$ref": "#/definitions/ServerCPU"
+            },
+            "ram": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ServerRAM"
+              }
+            },
+            "disk": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ServerDisk"
+              }
+            },
+            "gpu": {
+              "$ref": "#/definitions/ServerGPU"
+            },
+            "price_plan_available": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "addition": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ServiceBase"
+              }
+            },
+            "primary": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ServiceBase"
+              }
+            },
+            "uuid": {
+              "type": "string",
+              "example": "00000000-0000-0000-A000-000000000000",
+              "minLength": 36,
+              "maxLength": 36
+            },
+            "name": {
+              "type": "string"
+            },
+            "tariff_line": {
+              "type": "string"
+            },
+            "model": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "state": {
+              "type": "string",
+              "description": "service state"
+            },
+            "available": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ServiceAvailable"
+              }
+            },
+            "is_order": {
+              "type": "boolean"
+            },
+            "is_preorder": {
+              "type": "boolean"
+            },
+            "setup_fee_collection": {
+              "$ref": "#/definitions/PriceModel"
+            },
+            "price_collection": {
+              "$ref": "#/definitions/PriceModel"
+            },
+            "service_tag": {
+              "type": "string"
+            },
+            "is_primary": {
+              "type": "boolean"
+            },
+            "is_single_prolonged": {
+              "type": "boolean"
+            },
+            "quantity": {
+              "type": "integer"
+            },
+            "is_qchange": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "ServerCPU": {
+      "required": [
+        "base_freq",
+        "cores_per_cpu",
+        "count",
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "base_freq": {
+          "type": "number"
+        },
+        "count": {
+          "type": "integer"
+        },
+        "cores_per_cpu": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "ServerRAM": {
+      "required": [
+        "count",
+        "size",
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer",
+          "description": "Объём памяти в Гигабайтах (GiB)"
+        },
+        "count": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "ServerDisk": {
+      "required": [
+        "count",
+        "size",
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "size": {
+          "type": "integer",
+          "description": "Объём памяти в Гигабайтах (GiB)"
+        },
+        "count": {
+          "type": "integer",
+          "description": "Количество дисков указанного типа"
+        }
+      },
+      "type": "object"
+    },
+    "ServerGPU": {
+      "required": [
+        "count",
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseServerResult": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/ServerViewModel"
+        }
+      },
+      "type": "object"
+    },
+    "PricePlanResultListModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PricePlanModel"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "PricePlanModel": {
+      "required": [
+        "name",
+        "period",
+        "type",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "period": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "PricePlanResultModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/PricePlanModel"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceAddModel": {
+      "required": [
+        "location_uuid",
+        "price_plan_uuid",
+        "service_uuid"
+      ],
+      "properties": {
+        "user_desc": {
+          "type": "string"
+        },
+        "service_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "location_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "price_plan_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "pay_day": {
+          "type": "integer"
+        },
+        "demo": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseBaseModel": {
+      "required": [
+        "result",
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "description": "Object which contains result of computed request",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Result"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Result": {
+      "properties": {},
+      "type": "object"
+    },
+    "ResourceResultModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/ResourceDetailModel"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceDetailModel": {
+      "required": [
+        "billing",
+        "config_name",
+        "hw_uuid",
+        "is_primary",
+        "is_processing",
+        "is_single_prolonged",
+        "location_uuid",
+        "owner_id",
+        "paid_till",
+        "previous_state",
+        "quantity",
+        "service_type",
+        "service_uuid",
+        "state",
+        "tags",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "info": {
+          "type": "string"
+        },
+        "created": {
+          "type": "integer"
+        },
+        "is_processing": {
+          "type": "boolean"
+        },
+        "hw_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "owner_id": {
+          "type": "integer"
+        },
+        "state": {
+          "type": "string",
+          "example": "pending",
+          "enum": [
+            "pending",
+            "processing",
+            "prolong",
+            "paid",
+            "deploy",
+            "active",
+            "expiring",
+            "ending",
+            "cancelling",
+            "unpaid",
+            "blocked",
+            "provided",
+            "cancel",
+            "deleted"
+          ]
+        },
+        "previous_state": {
+          "type": "string",
+          "example": "pending",
+          "enum": [
+            "pending",
+            "processing",
+            "prolong",
+            "paid",
+            "deploy",
+            "active",
+            "expiring",
+            "ending",
+            "cancelling",
+            "unpaid",
+            "blocked",
+            "provided",
+            "cancel",
+            "deleted"
+          ]
+        },
+        "location_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "user_desc": {
+          "type": "string"
+        },
+        "pay_day": {
+          "type": "integer"
+        },
+        "primary_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "is_primary": {
+          "type": "boolean"
+        },
+        "is_single_prolonged": {
+          "type": "boolean"
+        },
+        "service_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "service_type": {
+          "type": "string"
+        },
+        "config_name": {
+          "type": "string"
+        },
+        "billing": {
+          "$ref": "#/definitions/BillingModel"
+        },
+        "paid_till": {
+          "type": "integer",
+          "description": "Start order date from resource"
+        },
+        "actual_grace_date": {
+          "type": "integer",
+          "description": "Actual grace date from resource"
+        },
+        "actual_dead_date": {
+          "type": "integer",
+          "description": "Actual dead date from resource"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceTagModel"
+          }
+        },
+        "ordered": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceOrderedModel"
+          }
+        },
+        "addition_services": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceAdditionServiceModel"
+          }
+        },
+        "available_plan": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "example": "00000000-0000-0000-A000-000000000000",
+            "minLength": 36,
+            "maxLength": 36
+          }
+        }
+      },
+      "type": "object"
+    },
+    "BillingModel": {
+      "required": [
+        "currency",
+        "current_price_plan",
+        "next_price_plan"
+      ],
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "current_price_plan": {
+          "$ref": "#/definitions/PricePlanModel"
+        },
+        "next_price_plan": {
+          "$ref": "#/definitions/PricePlanModel"
+        },
+        "price": {
+          "$ref": "#/definitions/NextPriceModel"
+        }
+      },
+      "type": "object"
+    },
+    "NextPriceModel": {
+      "required": [
+        "amount_due",
+        "discount",
+        "discount_detail",
+        "setup_fee"
+      ],
+      "properties": {
+        "due_date": {
+          "type": "integer"
+        },
+        "paid_till": {
+          "type": "integer"
+        },
+        "amount_due": {
+          "type": "number"
+        },
+        "discount": {
+          "type": "integer"
+        },
+        "discount_detail": {
+          "$ref": "#/definitions/DiscountDetailModel"
+        },
+        "setup_fee": {
+          "type": "integer"
+        },
+        "plan_price": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "DiscountDetailModel": {
+      "required": [
+        "campaign",
+        "price_plan",
+        "resource",
+        "user"
+      ],
+      "properties": {
+        "user": {
+          "type": "integer"
+        },
+        "resource": {
+          "type": "integer"
+        },
+        "price_plan": {
+          "type": "integer"
+        },
+        "campaign": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceTagModel": {
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 128
+        }
+      },
+      "type": "object"
+    },
+    "ResourceOrderedModel": {
+      "required": [
+        "billing",
+        "is_single_prolonged",
+        "paid_till",
+        "quantity",
+        "service_price",
+        "service_type",
+        "service_uuid",
+        "state",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "info": {
+          "type": "string"
+        },
+        "created": {
+          "type": "integer"
+        },
+        "primary_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "is_single_prolonged": {
+          "type": "boolean"
+        },
+        "state": {
+          "type": "string",
+          "example": "pending",
+          "enum": [
+            "pending",
+            "processing",
+            "prolong",
+            "paid",
+            "deploy",
+            "active",
+            "expiring",
+            "ending",
+            "cancelling",
+            "unpaid",
+            "blocked",
+            "provided",
+            "cancel",
+            "deleted"
+          ]
+        },
+        "service_price": {
+          "type": "number"
+        },
+        "service_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "service_type": {
+          "type": "string"
+        },
+        "paid_till": {
+          "type": "integer",
+          "description": "Start order date from resource"
+        },
+        "billing": {
+          "$ref": "#/definitions/BillingModel"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceAdditionServiceModel": {
+      "required": [
+        "name",
+        "price",
+        "price_plan_available",
+        "quantity",
+        "setup_fee",
+        "state",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "name": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "price": {
+          "$ref": "#/definitions/PricePeriodModel"
+        },
+        "setup_fee": {
+          "$ref": "#/definitions/PricePeriodModel"
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "is_qchange": {
+          "type": "boolean"
+        },
+        "price_plan_available": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "example": "00000000-0000-0000-A000-000000000000",
+            "minLength": 36,
+            "maxLength": 36
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ResourceResultListModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceModel"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ResourceModel": {
+      "required": [
+        "billing",
+        "config_name",
+        "hw_uuid",
+        "is_primary",
+        "is_processing",
+        "is_single_prolonged",
+        "location_uuid",
+        "owner_id",
+        "paid_till",
+        "previous_state",
+        "quantity",
+        "service_type",
+        "service_uuid",
+        "state",
+        "tags",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "info": {
+          "type": "string"
+        },
+        "created": {
+          "type": "integer"
+        },
+        "is_processing": {
+          "type": "boolean"
+        },
+        "hw_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "owner_id": {
+          "type": "integer"
+        },
+        "state": {
+          "type": "string",
+          "example": "pending",
+          "enum": [
+            "pending",
+            "processing",
+            "prolong",
+            "paid",
+            "deploy",
+            "active",
+            "expiring",
+            "ending",
+            "cancelling",
+            "unpaid",
+            "blocked",
+            "provided",
+            "cancel",
+            "deleted"
+          ]
+        },
+        "previous_state": {
+          "type": "string",
+          "example": "pending",
+          "enum": [
+            "pending",
+            "processing",
+            "prolong",
+            "paid",
+            "deploy",
+            "active",
+            "expiring",
+            "ending",
+            "cancelling",
+            "unpaid",
+            "blocked",
+            "provided",
+            "cancel",
+            "deleted"
+          ]
+        },
+        "location_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "user_desc": {
+          "type": "string"
+        },
+        "pay_day": {
+          "type": "integer"
+        },
+        "primary_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "is_primary": {
+          "type": "boolean"
+        },
+        "is_single_prolonged": {
+          "type": "boolean"
+        },
+        "service_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "service_type": {
+          "type": "string"
+        },
+        "config_name": {
+          "type": "string"
+        },
+        "billing": {
+          "$ref": "#/definitions/BillingModel"
+        },
+        "paid_till": {
+          "type": "integer",
+          "description": "Start order date from resource"
+        },
+        "actual_grace_date": {
+          "type": "integer",
+          "description": "Actual grace date from resource"
+        },
+        "actual_dead_date": {
+          "type": "integer",
+          "description": "Actual dead date from resource"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceTagModel"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ResourceAppendModel": {
+      "required": [
+        "service_uuid"
+      ],
+      "properties": {
+        "service_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "quantity": {
+          "type": "integer",
+          "default": 1
+        },
+        "demo": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceUpdateModel": {
+      "properties": {
+        "price_plan_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "user_desc": {
+          "type": "string"
+        },
+        "demo": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceStartAdditionalModel": {
+      "required": [
+        "pay_currency",
+        "service_uuid"
+      ],
+      "properties": {
+        "service_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "quantity": {
+          "type": "integer",
+          "default": 1
+        },
+        "demo": {
+          "type": "boolean"
+        },
+        "pay_currency": {
+          "type": "string",
+          "example": "bonus",
+          "enum": [
+            "bonus",
+            "main",
+            "vk_rub"
+          ]
+        },
+        "extra_period": {
+          "type": "integer",
+          "description": "Prepayment for base plan period"
+        },
+        "pay_day": {
+          "type": "integer",
+          "description": "Prepayment day"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceOrderCompensationDetailModel": {
+      "required": [
+        "comment",
+        "is_applied",
+        "month",
+        "start",
+        "stop",
+        "year"
+      ],
+      "properties": {
+        "start": {
+          "type": "integer",
+          "description": "Start compensation period timestamp"
+        },
+        "stop": {
+          "type": "integer",
+          "description": "Stop compensation period timestamp"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "month": {
+          "type": "integer"
+        },
+        "year": {
+          "type": "integer"
+        },
+        "is_applied": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceStartModel": {
+      "required": [
+        "pay_currency"
+      ],
+      "properties": {
+        "pay_currency": {
+          "type": "string",
+          "example": "bonus",
+          "enum": [
+            "bonus",
+            "main",
+            "vk_rub"
+          ]
+        },
+        "extra_period": {
+          "type": "integer",
+          "description": "Prepayment for base plan period"
+        },
+        "pay_day": {
+          "type": "integer",
+          "description": "Prepayment day"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceRestoreModel": {
+      "required": [
+        "next_price_plan_uuid"
+      ],
+      "properties": {
+        "next_price_plan_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        }
+      },
+      "type": "object"
+    },
+    "ResourceCancelModel": {
+      "required": [
+        "immediately"
+      ],
+      "properties": {
+        "immediately": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceStartServerModel": {
+      "required": [
+        "location_uuid",
+        "pay_currency",
+        "price_plan_uuid",
+        "service_uuid",
+        "user_desc"
+      ],
+      "properties": {
+        "user_desc": {
+          "type": "string"
+        },
+        "service_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "location_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "price_plan_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "pay_day": {
+          "type": "integer",
+          "description": "Prepayment day"
+        },
+        "partitions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PartitionInput"
+          }
+        },
+        "pay_currency": {
+          "type": "string",
+          "example": "bonus",
+          "enum": [
+            "bonus",
+            "main",
+            "vk_rub"
+          ]
+        },
+        "extra_period": {
+          "type": "integer",
+          "description": "Prepayment for base plan period"
+        },
+        "limit_type": {
+          "type": "string",
+          "example": "speed",
+          "enum": [
+            "speed",
+            "traffic"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PartitionInput": {
+      "properties": {
+        "mount": {
+          "type": "string",
+          "default": "/"
+        },
+        "fstype": {
+          "type": "string",
+          "default": "ext4"
+        },
+        "size": {
+          "type": "integer",
+          "default": 10
+        },
+        "expand": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "type": "object"
+    },
+    "ResourceStartNetworkModel": {
+      "required": [
+        "location_uuid",
+        "pay_currency",
+        "price_plan_uuid",
+        "service_uuid"
+      ],
+      "properties": {
+        "user_desc": {
+          "type": "string"
+        },
+        "service_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "location_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "price_plan_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "pay_day": {
+          "type": "integer",
+          "description": "Prepayment day"
+        },
+        "pay_currency": {
+          "type": "string",
+          "example": "bonus",
+          "enum": [
+            "bonus",
+            "main",
+            "vk_rub"
+          ]
+        },
+        "extra_period": {
+          "type": "integer",
+          "description": "Prepayment for base plan period"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceOrdersStatResultListModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceOrdersStatModel"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ResourceOrdersStatModel": {
+      "required": [
+        "month"
+      ],
+      "properties": {
+        "month": {
+          "type": "string"
+        },
+        "order": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceOrdersModel"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ResourceOrdersModel": {
+      "required": [
+        "created",
+        "currency",
+        "discount",
+        "due_date",
+        "name",
+        "paid_till",
+        "pay_currency",
+        "price",
+        "price_plan",
+        "resource_primary_uuid",
+        "resource_uuid",
+        "state"
+      ],
+      "properties": {
+        "created": {
+          "type": "integer",
+          "description": "Current debt date"
+        },
+        "name": {
+          "type": "string"
+        },
+        "resource_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "service_model": {
+          "type": "string",
+          "description": "Service model for resource"
+        },
+        "resource_primary_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "discount": {
+          "type": "integer"
+        },
+        "price_plan": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "pay_currency": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "paid_till": {
+          "type": "integer",
+          "description": "Start order date"
+        },
+        "due_date": {
+          "type": "integer",
+          "description": "Paid order date"
+        },
+        "price": {
+          "type": "number"
+        },
+        "state": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceTagCreateUpdateModel": {
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 128
+        }
+      },
+      "type": "object"
+    },
+    "ResourceTagResultModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/ResourceTagModel"
+        }
+      },
+      "type": "object"
+    },
+    "ResourceTagResultListModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceTagModel"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ResourceTagManageModel": {
+      "required": [
+        "resource_tag_id"
+      ],
+      "properties": {
+        "resource_tag_id": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "PowerSwitchStatus": {
+      "required": [
+        "power_state"
+      ],
+      "properties": {
+        "power_state": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ResponsePowerStatus": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/DriverStatus"
+        }
+      },
+      "type": "object"
+    },
+    "DriverStatus": {
+      "properties": {
+        "driver_status": {
+          "$ref": "#/definitions/PowerStatus"
+        }
+      },
+      "type": "object"
+    },
+    "PowerStatus": {
+      "properties": {
+        "maintenance": {
+          "type": "boolean"
+        },
+        "maintenance_reason": {
+          "type": "string"
+        },
+        "power_state": {
+          "type": "string"
+        },
+        "target_power_state": {
+          "type": "string"
+        },
+        "console_enabled": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "PowerReboot": {
+      "properties": {
+        "reboot": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "type": "object"
+    },
+    "ConsoleResolution": {
+      "properties": {
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseConsole": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/Console"
+        }
+      },
+      "type": "object"
+    },
+    "Console": {
+      "properties": {
+        "console_enabled": {
+          "type": "boolean"
+        },
+        "console_info": {
+          "$ref": "#/definitions/ConsoleInfo"
+        }
+      },
+      "type": "object"
+    },
+    "ConsoleInfo": {
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseDeviceInfoList": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DeviceInfo"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "DeviceInfo": {
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Device": {
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseDevice": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/Device"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseOSTemplateList": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OSTemplate"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "OSTemplate": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "login": {
+          "type": "string",
+          "description": "default OS login"
+        },
+        "value": {
+          "type": "string"
+        },
+        "arch": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "partitioning": {
+          "type": "boolean"
+        },
+        "default_partitions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Partition"
+          }
+        },
+        "allowed_fs_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "raid": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Raid"
+          }
+        },
+        "versions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OSVersion"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "Partition": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/PartitionInput"
+        },
+        {
+          "properties": {
+            "editable": {
+              "type": "boolean",
+              "default": true
+            },
+            "mount": {
+              "type": "string",
+              "default": "/"
+            },
+            "fstype": {
+              "type": "string",
+              "default": "ext4"
+            },
+            "size": {
+              "type": "integer",
+              "default": 10
+            },
+            "expand": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "Raid": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OSVersion": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "outdated": {
+          "type": "boolean"
+        },
+        "visible": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "OSConfigInput": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseOSConfig"
+        },
+        {
+          "properties": {
+            "partitions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PartitionInput"
+              }
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "BaseOSConfig": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/IPv4Input"
+        },
+        {
+          "$ref": "#/definitions/IPv6Input"
+        },
+        {
+          "required": [
+            "arch",
+            "os_template",
+            "password",
+            "raid_type",
+            "userhostname",
+            "version"
+          ],
+          "properties": {
+            "os_template": {
+              "type": "string",
+              "example": "ubuntu"
+            },
+            "password": {
+              "type": "string"
+            },
+            "raid_type": {
+              "type": "string",
+              "example": "noraid"
+            },
+            "arch": {
+              "type": "string",
+              "example": "x86_64"
+            },
+            "version": {
+              "type": "string",
+              "example": "16.04"
+            },
+            "userhostname": {
+              "type": "string"
+            },
+            "user_ssh_key": {
+              "type": "string"
+            },
+            "manage_agent": {
+              "type": "string",
+              "default": "selectel"
+            },
+            "ipv4_address": {
+              "type": "string",
+              "example": "10.0.0.0",
+              "minLength": 6,
+              "maxLength": 43
+            },
+            "ipv4_netmask": {
+              "type": "string",
+              "example": "255.255.255.248",
+              "minLength": 6,
+              "maxLength": 43
+            },
+            "ipv4_gateway": {
+              "type": "string",
+              "example": "10.0.0.0",
+              "minLength": 6,
+              "maxLength": 43
+            },
+            "ipv6_address": {
+              "type": "string",
+              "example": "fec0::0001",
+              "minLength": 6,
+              "maxLength": 43
+            },
+            "ipv6_netmask": {
+              "type": "string",
+              "example": "ffff:ffff:ffff::",
+              "minLength": 6,
+              "maxLength": 43
+            },
+            "ipv6_gateway": {
+              "type": "string",
+              "example": "fec0::0001",
+              "minLength": 6,
+              "maxLength": 43
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "IPv4Input": {
+      "properties": {
+        "ipv4_address": {
+          "type": "string",
+          "example": "10.0.0.0",
+          "minLength": 6,
+          "maxLength": 43
+        },
+        "ipv4_netmask": {
+          "type": "string",
+          "example": "255.255.255.248",
+          "minLength": 6,
+          "maxLength": 43
+        },
+        "ipv4_gateway": {
+          "type": "string",
+          "example": "10.0.0.0",
+          "minLength": 6,
+          "maxLength": 43
+        }
+      },
+      "type": "object"
+    },
+    "IPv6Input": {
+      "properties": {
+        "ipv6_address": {
+          "type": "string",
+          "example": "fec0::0001",
+          "minLength": 6,
+          "maxLength": 43
+        },
+        "ipv6_netmask": {
+          "type": "string",
+          "example": "ffff:ffff:ffff::",
+          "minLength": 6,
+          "maxLength": 43
+        },
+        "ipv6_gateway": {
+          "type": "string",
+          "example": "fec0::0001",
+          "minLength": 6,
+          "maxLength": 43
+        }
+      },
+      "type": "object"
+    },
+    "ReinstallInput": {
+      "properties": {
+        "reinstall": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseOSConfig": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/OSConfig"
+        }
+      },
+      "type": "object"
+    },
+    "OSConfig": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseOSConfig"
+        },
+        {
+          "$ref": "#/definitions/ReinstallInput"
+        },
+        {
+          "required": [
+            "arch",
+            "os_template",
+            "password",
+            "raid_type",
+            "userhostname",
+            "version"
+          ],
+          "properties": {
+            "login": {
+              "type": "string",
+              "description": "default OS login"
+            },
+            "partitions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Partition"
+              }
+            },
+            "os_template": {
+              "type": "string",
+              "example": "ubuntu"
+            },
+            "password": {
+              "type": "string"
+            },
+            "raid_type": {
+              "type": "string",
+              "example": "noraid"
+            },
+            "arch": {
+              "type": "string",
+              "example": "x86_64"
+            },
+            "version": {
+              "type": "string",
+              "example": "16.04"
+            },
+            "userhostname": {
+              "type": "string"
+            },
+            "user_ssh_key": {
+              "type": "string"
+            },
+            "manage_agent": {
+              "type": "string",
+              "default": "selectel"
+            },
+            "ipv4_address": {
+              "type": "string",
+              "example": "10.0.0.0",
+              "minLength": 6,
+              "maxLength": 43
+            },
+            "ipv4_netmask": {
+              "type": "string",
+              "example": "255.255.255.248",
+              "minLength": 6,
+              "maxLength": 43
+            },
+            "ipv4_gateway": {
+              "type": "string",
+              "example": "10.0.0.0",
+              "minLength": 6,
+              "maxLength": 43
+            },
+            "ipv6_address": {
+              "type": "string",
+              "example": "fec0::0001",
+              "minLength": 6,
+              "maxLength": 43
+            },
+            "ipv6_netmask": {
+              "type": "string",
+              "example": "ffff:ffff:ffff::",
+              "minLength": 6,
+              "maxLength": 43
+            },
+            "ipv6_gateway": {
+              "type": "string",
+              "example": "fec0::0001",
+              "minLength": 6,
+              "maxLength": 43
+            },
+            "reinstall": {
+              "type": "integer"
+            }
+          },
+          "type": "object"
+        }
+      ]
+    },
+    "EventResultListModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EventModel"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "EventModel": {
+      "properties": {
+        "user_id": {
+          "type": "integer"
+        },
+        "staff_id": {
+          "type": "integer"
+        },
+        "request_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "item_uuid": {
+          "type": "string"
+        },
+        "item_name": {
+          "type": "string"
+        },
+        "action_name": {
+          "type": "string"
+        },
+        "change_data": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseBaseAsyncModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "result": {
+          "type": "object"
+        },
+        "execution_time": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkLimitUpdateModel": {
+      "properties": {
+        "next_limit_type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkLimitResultModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/NetworkLimitModel"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkLimitModel": {
+      "required": [
+        "created",
+        "enable",
+        "limit",
+        "updated",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "created": {
+          "type": "integer"
+        },
+        "updated": {
+          "type": "integer"
+        },
+        "enable": {
+          "type": "boolean"
+        },
+        "current_limit_type": {
+          "type": "string"
+        },
+        "next_limit_type": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "limit_last_switch": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkListResultModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NetworkModel"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "NetworkModel": {
+      "required": [
+        "is_processing",
+        "is_shared"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "created": {
+          "type": "integer"
+        },
+        "updated": {
+          "type": "integer"
+        },
+        "owner_id": {
+          "type": "integer"
+        },
+        "location_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "vlan": {
+          "type": "integer",
+          "description": "Specified Vlan. DEPRECATED: use \"tag\" instead."
+        },
+        "tag": {
+          "type": "string",
+          "description": "Specified tag"
+        },
+        "user_desc": {
+          "type": "string",
+          "description": "User network description"
+        },
+        "network_type": {
+          "type": "string",
+          "example": "local",
+          "enum": [
+            "local",
+            "inet"
+          ]
+        },
+        "is_shared": {
+          "type": "boolean",
+          "description": "Shared network"
+        },
+        "subnet_count": {
+          "type": "integer"
+        },
+        "port_count": {
+          "type": "integer"
+        },
+        "is_processing": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkUpdateModel": {
+      "properties": {
+        "user_desc": {
+          "type": "string",
+          "description": "User network description"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkResultModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/NetworkModelSingle"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkModelSingle": {
+      "required": [
+        "is_processing",
+        "is_shared"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "created": {
+          "type": "integer"
+        },
+        "updated": {
+          "type": "integer"
+        },
+        "owner_id": {
+          "type": "integer"
+        },
+        "location_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "vlan": {
+          "type": "integer",
+          "description": "Specified Vlan. DEPRECATED: use \"tag\" instead."
+        },
+        "tag": {
+          "type": "string",
+          "description": "Specified tag"
+        },
+        "user_desc": {
+          "type": "string",
+          "description": "User network description"
+        },
+        "network_type": {
+          "type": "string",
+          "example": "local",
+          "enum": [
+            "local",
+            "inet"
+          ]
+        },
+        "is_shared": {
+          "type": "boolean",
+          "description": "Shared network"
+        },
+        "subnet_count": {
+          "type": "integer"
+        },
+        "port_count": {
+          "type": "integer"
+        },
+        "is_processing": {
+          "type": "boolean"
+        },
+        "subnet": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NetworkSubnetSmallModel"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "NetworkSubnetSmallModel": {
+      "required": [
+        "is_full"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "subnet": {
+          "type": "string",
+          "example": "10.0.0.0/29",
+          "minLength": 8,
+          "maxLength": 43
+        },
+        "is_full": {
+          "type": "boolean"
+        },
+        "used": {
+          "type": "integer"
+        },
+        "usage": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "NetworkAddSubnetModel": {
+      "required": [
+        "subnet_uuid"
+      ],
+      "properties": {
+        "subnet_uuid": {
+          "type": "string",
+          "description": "subnet uuid",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        }
+      },
+      "type": "object"
+    },
+    "NetworkReleaseSubnetModel": {
+      "required": [
+        "subnet_uuid"
+      ],
+      "properties": {
+        "subnet_uuid": {
+          "type": "string",
+          "description": "subnet uuid",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        }
+      },
+      "type": "object"
+    },
+    "SubnetListResultModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SubnetModel"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "SubnetModel": {
+      "required": [
+        "created",
+        "is_broken",
+        "is_full",
+        "is_master_shared",
+        "is_processing",
+        "is_visible",
+        "location_uuid",
+        "master_uuid",
+        "network_uuid",
+        "owner_id",
+        "prefixlen",
+        "resource_uuid",
+        "subnet",
+        "updated",
+        "uuid",
+        "version"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "created": {
+          "type": "integer"
+        },
+        "updated": {
+          "type": "integer"
+        },
+        "owner_id": {
+          "type": "integer",
+          "description": "Owner id"
+        },
+        "location_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "resource_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "is_visible": {
+          "type": "boolean"
+        },
+        "is_full": {
+          "type": "boolean"
+        },
+        "is_master_shared": {
+          "type": "boolean"
+        },
+        "is_broken": {
+          "type": "boolean"
+        },
+        "master_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "network_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "subnet": {
+          "type": "string",
+          "example": "10.0.0.0/29",
+          "minLength": 8,
+          "maxLength": 43
+        },
+        "master": {
+          "type": "string",
+          "example": "10.0.0.0/29",
+          "minLength": 8,
+          "maxLength": 43
+        },
+        "network": {
+          "type": "integer"
+        },
+        "broadcast": {
+          "type": "string",
+          "example": "10.0.64.11",
+          "minLength": 6,
+          "maxLength": 43
+        },
+        "vrrp": {
+          "type": "string",
+          "example": "10.0.64.11",
+          "minLength": 6,
+          "maxLength": 43
+        },
+        "version": {
+          "type": "integer"
+        },
+        "prefixlen": {
+          "type": "integer"
+        },
+        "netmask": {
+          "type": "string",
+          "example": "10.0.64.11",
+          "minLength": 6,
+          "maxLength": 43
+        },
+        "gateway": {
+          "type": "string",
+          "example": "10.0.64.11",
+          "minLength": 6,
+          "maxLength": 43
+        },
+        "used": {
+          "type": "integer"
+        },
+        "usage": {
+          "type": "number"
+        },
+        "free": {
+          "type": "integer"
+        },
+        "is_processing": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "SubnetResultModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/SubnetModel"
+        }
+      },
+      "type": "object"
+    },
+    "IpResultListModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IpModel"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "IpModel": {
+      "required": [
+        "broadcast",
+        "created",
+        "gateway",
+        "ip",
+        "netmask",
+        "network_uuid",
+        "subnet",
+        "subnet_uuid",
+        "updated",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "created": {
+          "type": "integer"
+        },
+        "updated": {
+          "type": "integer"
+        },
+        "resource_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "ip": {
+          "type": "string",
+          "example": "10.0.64.11",
+          "minLength": 6,
+          "maxLength": 43
+        },
+        "subnet_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "network_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "subnet": {
+          "type": "string",
+          "example": "10.0.0.0/29",
+          "minLength": 8,
+          "maxLength": 43
+        },
+        "netmask": {
+          "type": "string"
+        },
+        "gateway": {
+          "type": "string"
+        },
+        "broadcast": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "IpAllocateModel": {
+      "required": [
+        "resource_uuid"
+      ],
+      "properties": {
+        "resource_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "ip": {
+          "type": "string",
+          "example": "10.0.64.11",
+          "minLength": 6,
+          "maxLength": 43
+        }
+      },
+      "type": "object"
+    },
+    "IpResultModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/IpModel"
+        }
+      },
+      "type": "object"
+    },
+    "IpReleaseModel": {
+      "required": [
+        "resource_uuid"
+      ],
+      "properties": {
+        "resource_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        }
+      },
+      "type": "object"
+    },
+    "PortResultModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/PortModel"
+        }
+      },
+      "type": "object"
+    },
+    "PortModel": {
+      "required": [
+        "hw_uuid",
+        "is_apply",
+        "is_enabled",
+        "is_processing",
+        "port_name",
+        "port_type",
+        "speed",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "created": {
+          "type": "integer"
+        },
+        "updated": {
+          "type": "integer"
+        },
+        "port_type": {
+          "type": "string",
+          "example": "local",
+          "enum": [
+            "local",
+            "inet"
+          ]
+        },
+        "speed": {
+          "type": "string",
+          "example": "AUTO",
+          "enum": [
+            "AUTO",
+            "10M",
+            "100M",
+            "1G"
+          ]
+        },
+        "is_enabled": {
+          "type": "boolean"
+        },
+        "port_name": {
+          "type": "string"
+        },
+        "is_apply": {
+          "type": "boolean"
+        },
+        "hw_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "network": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NetworkModel"
+          }
+        },
+        "is_processing": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "PortNetworkModel": {
+      "required": [
+        "network_uuid"
+      ],
+      "properties": {
+        "network_uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        }
+      },
+      "type": "object"
+    },
+    "PortListResultModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PortModel"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ResponseTrafficConsumption": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/TrafficConsumptionMessage"
+        }
+      },
+      "type": "object"
+    },
+    "TrafficConsumptionMessage": {
+      "required": [
+        "consumption_type",
+        "paid",
+        "speed_limit",
+        "speed_paid",
+        "traffic_limit",
+        "traffic_paid",
+        "traffic_spent"
+      ],
+      "properties": {
+        "speed_paid": {
+          "type": "integer",
+          "description": "Speed limit which was paid"
+        },
+        "traffic_paid": {
+          "type": "integer",
+          "description": "Traffic limit which was paid"
+        },
+        "speed_limit": {
+          "type": "integer",
+          "description": "Speed limit default + paid, Mbit/s"
+        },
+        "traffic_limit": {
+          "type": "integer",
+          "description": "Traffic limit default + paid, GB (Gigabytes, 10^9 bytes)"
+        },
+        "traffic_spent": {
+          "type": "integer",
+          "description": "Spent traffic, GB (Gigabytes, 10^9 bytes) in selected month"
+        },
+        "paid": {
+          "type": "integer",
+          "description": "Paid speed or traffic limit, same units than in limits"
+        },
+        "consumption_type": {
+          "type": "string",
+          "description": "Type of limit",
+          "example": "speed",
+          "enum": [
+            "speed",
+            "traff"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "ResponseSpeedGraph": {
+      "required": [
+        "result",
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "description": "List of graph data where 1 - unix timestamp, \n2 - in speed bit/s, \n3 - out speed bit/s",
+          "items": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 3,
+            "items": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ResponseNameListModel": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NameBase"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "NameBase": {
+      "required": [
+        "name",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseNameResult": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/NameBase"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseNameTagsListResult": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TagBase"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "TagBase": {
+      "required": [
+        "tag",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "tag": {
+          "type": "string"
+        },
+        "default": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseTagListResult": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TagBase"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "ResponseTagResult": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/TagBase"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseTagNamesListResult": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NameBase"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "UserNameAdd": {
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseUserNameResult": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "$ref": "#/definitions/UserNameBase"
+        }
+      },
+      "type": "object"
+    },
+    "UserNameBase": {
+      "required": [
+        "name",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ResponseUserNameListResult": {
+      "required": [
+        "task_id"
+      ],
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Unique task UUID v4",
+          "example": "00000000-0000-0000-A000-000000000000",
+          "minLength": 36,
+          "maxLength": 36
+        },
+        "status": {
+          "type": "string"
+        },
+        "progress": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "item_count": {
+          "type": "integer"
+        },
+        "execution_time": {
+          "type": "number"
+        },
+        "result": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserNameBase"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "UserNameUpdate": {
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "responses": {
+    "ParseError": {
+      "description": "When a mask can't be parsed"
+    },
+    "MaskError": {
+      "description": "When any error occurs on mask"
+    },
+    "AnotherTaskRunning": {
+      "description": "Maintenance Error"
+    },
+    "Maintenance": {
+      "description": "Maintenance Error"
+    },
+    "SeidoValidationError": {
+      "description": "Validation Error"
+    },
+    "SeidoAttributeError": {
+      "description": "Validation Error"
+    },
+    "NoMoney": {
+      "description": "Validation Error"
+    },
+    "ClientAccessDenyError": {
+      "description": "Forbidden"
+    },
+    "SeidoAccessDenyError": {
+      "description": "Forbidden"
+    },
+    "SeidoNotFoundError": {
+      "description": "Not Found"
+    },
+    "SeidoConflictError": {
+      "description": "Conflict error"
+    },
+    "GoroNotImplemented": {
+      "description": "Not implemented"
+    }
+  }
+}
