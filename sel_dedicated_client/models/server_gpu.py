@@ -40,14 +40,15 @@ class ServerGPU(object):
         'count': 'count'
     }
 
-    def __init__(self, name=None, count=None):  # noqa: E501
+    def __init__(self, name='', count=None):  # noqa: E501
         """ServerGPU - a model defined in OpenAPI"""  # noqa: E501
 
         self._name = None
         self._count = None
         self.discriminator = None
 
-        self.name = name
+        if name is not None:
+            self.name = name
         self.count = count
 
     @property
@@ -68,8 +69,6 @@ class ServerGPU(object):
         :param name: The name of this ServerGPU.  # noqa: E501
         :type: str
         """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 

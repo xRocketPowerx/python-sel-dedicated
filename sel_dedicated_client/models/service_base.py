@@ -68,7 +68,7 @@ class ServiceBase(object):
         'is_qchange': 'is_qchange'
     }
 
-    def __init__(self, uuid=None, name=None, tariff_line=None, model=None, tags=None, state=None, available=None, is_order=None, is_preorder=None, setup_fee_collection=None, price_collection=None, service_tag=None, is_primary=None, is_single_prolonged=None, quantity=None, is_qchange=None):  # noqa: E501
+    def __init__(self, uuid=None, name='', tariff_line=None, model=None, tags=None, state=None, available=None, is_order=None, is_preorder=None, setup_fee_collection=None, price_collection=None, service_tag=None, is_primary=None, is_single_prolonged=None, quantity=None, is_qchange=None):  # noqa: E501
         """ServiceBase - a model defined in OpenAPI"""  # noqa: E501
 
         self._uuid = None
@@ -90,7 +90,8 @@ class ServiceBase(object):
         self.discriminator = None
 
         self.uuid = uuid
-        self.name = name
+        if name is not None:
+            self.name = name
         self.tariff_line = tariff_line
         self.model = model
         self.tags = tags
@@ -153,8 +154,6 @@ class ServiceBase(object):
         :param name: The name of this ServiceBase.  # noqa: E501
         :type: str
         """
-        if name is None:
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 

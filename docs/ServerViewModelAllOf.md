@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **disk** | [**list[ServerDisk]**](ServerDisk.md) |  | 
 **gpu** | [**ServerGPU**](ServerGPU.md) |  | [optional] 
 **price_plan_available** | **list[str]** |  | 
-**addition** | [**list[ServiceBase]**](ServiceBase.md) |  | 
-**primary** | [**list[ServiceBase]**](ServiceBase.md) |  | 
+**addition** | [**list[ServiceBase]**](ServiceBase.md) |  | [optional] 
+**primary** | [**list[ServiceBase]**](ServiceBase.md) |  | [optional] 
 **uuid** | **str** |  | 
-**name** | **str** |  | 
+**name** | **str** |  | [optional] [default to '']
 **tariff_line** | **str** |  | 
 **model** | **str** |  | 
 **tags** | **list[str]** |  | 
