@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | **str** |  | 
-**name** | **str** |  | 
+**name** | **str** |  | [optional] [default to '']
 **tariff_line** | **str** |  | 
 **model** | **str** |  | 
 **tags** | **list[str]** |  | 

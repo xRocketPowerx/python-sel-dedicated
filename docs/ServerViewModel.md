@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | **str** |  | 
-**name** | **str** |  | 
+**name** | **str** |  | [optional] [default to '']
 **tariff_line** | **str** |  | 
 **model** | **str** |  | 
 **tags** | **list[str]** |  | 
@@ -20,8 +20,8 @@ Name | Type | Description | Notes
 **quantity** | **int** |  | [optional] 
 **is_qchange** | **bool** |  | [optional] 
 **price_plan_available** | **list[str]** |  | 
-**addition** | [**list[ServiceBase]**](ServiceBase.md) |  | 
-**primary** | [**list[ServiceBase]**](ServiceBase.md) |  | 
+**addition** | [**list[ServiceBase]**](ServiceBase.md) |  | [optional] 
+**primary** | [**list[ServiceBase]**](ServiceBase.md) |  | [optional] 
 **config_name** | **str** |  | 
 **cpu** | [**ServerCPU**](ServerCPU.md) |  | 
 **ram** | [**list[ServerRAM]**](ServerRAM.md) |  | 

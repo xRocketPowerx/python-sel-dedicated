@@ -27,8 +27,8 @@ api_instance = sel_dedicated_client.ConsumptionApi()
 resource_uuid = 'resource_uuid_example' # str | 
 local = 'false' # str | Switch which port type needs to be shown (optional) (default to 'false')
 interval = 'min5' # str | Interval to group points by (optional) (default to 'min5')
-till = 1570953976 # int | Time from which speed points will ends, Unix timestamp (optional) (default to 1570953976)
-_from = 1570950376 # int | Time from which speed points will starts, Unix timestamp (optional) (default to 1570950376)
+till = 1570963348 # int | Time from which speed points will ends, Unix timestamp (optional) (default to 1570963348)
+_from = 1570959748 # int | Time from which speed points will starts, Unix timestamp (optional) (default to 1570959748)
 
 try:
     # Get Resource speed points
@@ -45,8 +45,8 @@ Name | Type | Description  | Notes
  **resource_uuid** | **str**|  | 
  **local** | **str**| Switch which port type needs to be shown | [optional] [default to &#39;false&#39;]
  **interval** | **str**| Interval to group points by | [optional] [default to &#39;min5&#39;]
- **till** | **int**| Time from which speed points will ends, Unix timestamp | [optional] [default to 1570953976]
- **_from** | **int**| Time from which speed points will starts, Unix timestamp | [optional] [default to 1570950376]
+ **till** | **int**| Time from which speed points will ends, Unix timestamp | [optional] [default to 1570963348]
+ **_from** | **int**| Time from which speed points will starts, Unix timestamp | [optional] [default to 1570959748]
 
 ### Return type
 
