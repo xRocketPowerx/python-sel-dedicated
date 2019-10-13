@@ -1,21 +1,27 @@
 
-# Python client for Selectel Servers API
+# WIP: Python client for Selectel Servers API
 
 [![Build Status](https://travis-ci.org/kubernetes-client/python.svg?branch=master)](https://travis-ci.com/xRocketPowerx/python-sel-dedicated)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Language: Python](https://img.shields.io/badge/Language-Python%203.4%20%7C%203.5%20%7C%203.6%20%7C%203.7-blue)
 
-### Назначение
+|         |   |
+|---------|---|
+| status  | WIP |
+| version | 0.0.1-beta |
+
+
+## Назначение
 Предоставить python-native интерфейс для работы с Selectel Servers API.
 
 
 ### Цели которые преследует проект
 
-1. Оставаться в контексте любимого языка (при работе с API).
-2. Обновление API будут появляться в новых версиях этой клиентской библиотеки.
-3. Валидация запросов к API на уровне клиентского кода.
-4. Открытость для исправлений и улучшений.
-5. Пример разработки проекта с использованием openapi (swagger) code-generation.
+1. Оставаться в контексте любимого языка при работе с API.
+    1. Использование функционал и типов языка при работе с API.
+    1. Валидация запросов к API на уровне клиентского кода (до запросов в API).
+1. Открытость для исправлений и улучшений.
+1. Пример проекта с использованием openapi code-generation.
 
 
 ## Пример использования
@@ -39,6 +45,7 @@ def get_client():
     cfg = get_config()
     client = ApiClient(cfg) 
     return client
+
 
 def get_locations_api(client):
     return dedic.LocationsApi(client)
@@ -75,6 +82,7 @@ def get_client():
     client = ApiClient(cfg) 
     return client
 
+
 def get_services_api(client):
     return dedic.ServicesApi(client)
 
@@ -91,10 +99,21 @@ if __name__=="__main__":
 
 ```
 
+## TODO
 
-# Authors
-xRocketPoweRx team
+1. [x] MVP python client
+1. [x] MVP python client auto-generation tooling
+1. [x] Интеграция с CI 
+1. [ ] Стабилизировать BETA 
+1. [ ] Забагрепортить ошибки в swagger документации API
+1. [ ] Расширить покрытие тестами.
+1. [ ] Стабилизировать API (v1.0.0) и опубликовать в PyPI
+1. [ ] Расширить функционал: 
+    1. [ ] сгруппировать нэймспейсы API в общий входной объект.
 
 
-# License
+## Authors
+Команда RocketPower (Selectel Hackathon 2019)
+
+## License
 MIT
