@@ -22,10 +22,10 @@ import tempfile
 import six
 from six.moves.urllib.parse import quote
 
-from sel_dedicated_client.configuration import Configuration
-import sel_dedicated_client.models
-from sel_dedicated_client import rest
-from sel_dedicated_client.exceptions import ApiValueError
+from sel_dedicated_codegen.configuration import Configuration
+import sel_dedicated_codegen.models
+from sel_dedicated_codegen import rest
+from sel_dedicated_codegen.exceptions import ApiValueError
 
 
 class ApiClient(object):
@@ -277,7 +277,7 @@ class ApiClient(object):
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(sel_dedicated_client.models, klass)
+                klass = getattr(sel_dedicated_codegen.models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)

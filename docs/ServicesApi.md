@@ -1,4 +1,4 @@
-# sel_dedicated_client.ServicesApi
+# sel_dedicated_codegen.ServicesApi
 
 All URIs are relative to *https://api.selectel.ru/servers/v2*
 
@@ -24,12 +24,12 @@ Show network details
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ServicesApi()
+api_instance = sel_dedicated_codegen.ServicesApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -76,12 +76,12 @@ List network
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ServicesApi()
+api_instance = sel_dedicated_codegen.ServicesApi()
 state = 'state_example' # str | billing state (optional)
 sort = 'created' # str |  (optional) (default to 'created')
 order = 'asc' # str | Order direction: [\"desc\", \"asc\"] (optional) (default to 'asc')
@@ -132,12 +132,12 @@ Show server details
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ServicesApi()
+api_instance = sel_dedicated_codegen.ServicesApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -184,12 +184,12 @@ Show chipcore server details
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ServicesApi()
+api_instance = sel_dedicated_codegen.ServicesApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -236,12 +236,12 @@ List chipcore servers
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ServicesApi()
+api_instance = sel_dedicated_codegen.ServicesApi()
 sort = 'created' # str |  (optional) (default to 'created')
 order = 'asc' # str | Order direction: [\"desc\", \"asc\"] (optional) (default to 'asc')
 
@@ -290,12 +290,12 @@ List servers
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ServicesApi()
+api_instance = sel_dedicated_codegen.ServicesApi()
 state = 'state_example' # str | billing state (optional)
 sort = 'created' # str |  (optional) (default to 'created')
 order = 'asc' # str | Order direction: [\"desc\", \"asc\"] (optional) (default to 'asc')
@@ -346,12 +346,12 @@ Show service details
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ServicesApi()
+api_instance = sel_dedicated_codegen.ServicesApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -398,12 +398,12 @@ List services
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ServicesApi()
+api_instance = sel_dedicated_codegen.ServicesApi()
 sort = 'created' # str |  (optional) (default to 'created')
 order = 'asc' # str | Order direction: [\"desc\", \"asc\"] (optional) (default to 'asc')
 is_primary = True # bool |  (optional)

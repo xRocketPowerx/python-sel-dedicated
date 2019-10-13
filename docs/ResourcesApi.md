@@ -1,4 +1,4 @@
-# sel_dedicated_client.ResourcesApi
+# sel_dedicated_codegen.ResourcesApi
 
 All URIs are relative to *https://api.selectel.ru/servers/v2*
 
@@ -36,14 +36,14 @@ Cancel resource
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
+api_instance = sel_dedicated_codegen.ResourcesApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.ResourceCancelModel() # ResourceCancelModel | 
+payload = sel_dedicated_codegen.ResourceCancelModel() # ResourceCancelModel | 
 
 try:
     # Cancel resource
@@ -91,14 +91,14 @@ Remove user tag from resource
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
+api_instance = sel_dedicated_codegen.ResourcesApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.ResourceTagManageModel() # ResourceTagManageModel | 
+payload = sel_dedicated_codegen.ResourceTagManageModel() # ResourceTagManageModel | 
 
 try:
     # Remove user tag from resource
@@ -145,12 +145,12 @@ Delete user tag
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
+api_instance = sel_dedicated_codegen.ResourcesApi()
 id = 56 # int | 
 
 try:
@@ -197,12 +197,12 @@ List compensation fact for Resource
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
+api_instance = sel_dedicated_codegen.ResourcesApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -249,12 +249,12 @@ List resources
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
+api_instance = sel_dedicated_codegen.ResourcesApi()
 resource_tag_id = 56 # int | resource_tag_id (optional)
 limit = 56 # int | Items limit (optional)
 page = 56 # int | Page number (optional)
@@ -306,12 +306,12 @@ No authorization required
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
+api_instance = sel_dedicated_codegen.ResourcesApi()
 year = 56 # int | 
 
 try:
@@ -357,12 +357,12 @@ List all user tags
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
+api_instance = sel_dedicated_codegen.ResourcesApi()
 limit = 56 # int | Items limit (optional)
 page = 56 # int | Page number (optional)
 
@@ -411,12 +411,12 @@ Show resource details
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
+api_instance = sel_dedicated_codegen.ResourcesApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -464,14 +464,14 @@ Restore resource
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
+api_instance = sel_dedicated_codegen.ResourcesApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.ResourceRestoreModel() # ResourceRestoreModel | 
+payload = sel_dedicated_codegen.ResourceRestoreModel() # ResourceRestoreModel | 
 
 try:
     # Restore resource
@@ -519,14 +519,14 @@ Append resource
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
+api_instance = sel_dedicated_codegen.ResourcesApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.ResourceAppendModel() # ResourceAppendModel | 
+payload = sel_dedicated_codegen.ResourceAppendModel() # ResourceAppendModel | 
 
 try:
     # Append resource
@@ -574,14 +574,14 @@ Add and activate additional resource
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
+api_instance = sel_dedicated_codegen.ResourcesApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.ResourceStartAdditionalModel() # ResourceStartAdditionalModel | 
+payload = sel_dedicated_codegen.ResourceStartAdditionalModel() # ResourceStartAdditionalModel | 
 
 try:
     # Add and activate additional resource
@@ -629,14 +629,14 @@ Activate resource
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
+api_instance = sel_dedicated_codegen.ResourcesApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.ResourceStartModel() # ResourceStartModel | 
+payload = sel_dedicated_codegen.ResourceStartModel() # ResourceStartModel | 
 
 try:
     # Activate resource
@@ -684,13 +684,13 @@ Add and activate network resource
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
-payload = sel_dedicated_client.ResourceStartNetworkModel() # ResourceStartNetworkModel | 
+api_instance = sel_dedicated_codegen.ResourcesApi()
+payload = sel_dedicated_codegen.ResourceStartNetworkModel() # ResourceStartNetworkModel | 
 
 try:
     # Add and activate network resource
@@ -737,13 +737,13 @@ Add and activate server resource
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
-payload = sel_dedicated_client.ResourceStartServerModel() # ResourceStartServerModel | 
+api_instance = sel_dedicated_codegen.ResourcesApi()
+payload = sel_dedicated_codegen.ResourceStartServerModel() # ResourceStartServerModel | 
 
 try:
     # Add and activate server resource
@@ -790,13 +790,13 @@ Add and activate serverchip resource
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
-payload = sel_dedicated_client.ResourceStartServerModel() # ResourceStartServerModel | 
+api_instance = sel_dedicated_codegen.ResourcesApi()
+payload = sel_dedicated_codegen.ResourceStartServerModel() # ResourceStartServerModel | 
 
 try:
     # Add and activate serverchip resource
@@ -843,13 +843,13 @@ Create resource
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
-payload = sel_dedicated_client.ResourceAddModel() # ResourceAddModel | 
+api_instance = sel_dedicated_codegen.ResourcesApi()
+payload = sel_dedicated_codegen.ResourceAddModel() # ResourceAddModel | 
 
 try:
     # Create resource
@@ -896,13 +896,13 @@ Create new user tag
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
-payload = sel_dedicated_client.ResourceTagCreateUpdateModel() # ResourceTagCreateUpdateModel | 
+api_instance = sel_dedicated_codegen.ResourcesApi()
+payload = sel_dedicated_codegen.ResourceTagCreateUpdateModel() # ResourceTagCreateUpdateModel | 
 
 try:
     # Create new user tag
@@ -948,14 +948,14 @@ Add user tag to resource
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
+api_instance = sel_dedicated_codegen.ResourcesApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.ResourceTagManageModel() # ResourceTagManageModel | 
+payload = sel_dedicated_codegen.ResourceTagManageModel() # ResourceTagManageModel | 
 
 try:
     # Add user tag to resource
@@ -1002,14 +1002,14 @@ Update user tag
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
+api_instance = sel_dedicated_codegen.ResourcesApi()
 id = 56 # int | 
-payload = sel_dedicated_client.ResourceTagCreateUpdateModel() # ResourceTagCreateUpdateModel | 
+payload = sel_dedicated_codegen.ResourceTagCreateUpdateModel() # ResourceTagCreateUpdateModel | 
 
 try:
     # Update user tag
@@ -1056,14 +1056,14 @@ Update resource
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ResourcesApi()
+api_instance = sel_dedicated_codegen.ResourcesApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.ResourceUpdateModel() # ResourceUpdateModel | 
+payload = sel_dedicated_codegen.ResourceUpdateModel() # ResourceUpdateModel | 
 
 try:
     # Update resource

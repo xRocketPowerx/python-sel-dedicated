@@ -1,4 +1,4 @@
-# sel_dedicated_client.PricePlansApi
+# sel_dedicated_codegen.PricePlansApi
 
 All URIs are relative to *https://api.selectel.ru/servers/v2*
 
@@ -18,12 +18,12 @@ Show price plan details
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.PricePlansApi()
+api_instance = sel_dedicated_codegen.PricePlansApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -70,12 +70,12 @@ List price plans
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.PricePlansApi()
+api_instance = sel_dedicated_codegen.PricePlansApi()
 
 try:
     # List price plans

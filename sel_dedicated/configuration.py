@@ -12,7 +12,7 @@
 
 from __future__ import absolute_import
 
-from sel_dedicated_client.configuration import Configuration as _Base
+from sel_dedicated_codegen.configuration import Configuration as _Base
 
 
 class Configuration(_Base):

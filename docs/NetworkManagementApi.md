@@ -1,4 +1,4 @@
-# sel_dedicated_client.NetworkManagementApi
+# sel_dedicated_codegen.NetworkManagementApi
 
 All URIs are relative to *https://api.selectel.ru/servers/v2*
 
@@ -36,14 +36,14 @@ Release Ip
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.IpReleaseModel() # IpReleaseModel | 
+payload = sel_dedicated_codegen.IpReleaseModel() # IpReleaseModel | 
 
 try:
     # Release Ip
@@ -89,14 +89,14 @@ Release subnet from network
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.NetworkReleaseSubnetModel() # NetworkReleaseSubnetModel | 
+payload = sel_dedicated_codegen.NetworkReleaseSubnetModel() # NetworkReleaseSubnetModel | 
 
 try:
     # Release subnet from network
@@ -144,14 +144,14 @@ Delete Network for Port
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.PortNetworkModel() # PortNetworkModel | 
+payload = sel_dedicated_codegen.PortNetworkModel() # PortNetworkModel | 
 
 try:
     # Delete Network for Port
@@ -198,12 +198,12 @@ Get Ip list
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 is_shared = True # bool | Shared network (optional)
 owner_id = 56 # int | Owner ip (optional)
 network_uuid = 'network_uuid_example' # str | IP network (optional)
@@ -262,12 +262,12 @@ Get Ip list
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 subnet_uuid = 'subnet_uuid_example' # str | 
 
 try:
@@ -314,12 +314,12 @@ Get Network
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -366,12 +366,12 @@ Get Network Limit
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -418,12 +418,12 @@ Get Network list
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 is_shared = True # bool | Shared network (optional)
 location_uuid = 'location_uuid_example' # str | Network location (optional)
 resource_uuid = 'resource_uuid_example' # str | Network have ip for resource (optional)
@@ -478,12 +478,12 @@ Get Port
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -530,12 +530,12 @@ Get Port from Hw
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 hw_uuid = 'hw_uuid_example' # str | 
 
 try:
@@ -582,12 +582,12 @@ Get Network for Port
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -634,12 +634,12 @@ Get Port
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 
 try:
     # Get Port
@@ -682,12 +682,12 @@ Get Subnet
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -734,12 +734,12 @@ Get Subnet list
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 
 try:
     # Get Subnet list
@@ -782,14 +782,14 @@ Create Ip
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 subnet_uuid = 'subnet_uuid_example' # str | 
-payload = sel_dedicated_client.IpAllocateModel() # IpAllocateModel | 
+payload = sel_dedicated_codegen.IpAllocateModel() # IpAllocateModel | 
 
 try:
     # Create Ip
@@ -836,14 +836,14 @@ Add subnet to network
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.NetworkAddSubnetModel() # NetworkAddSubnetModel | 
+payload = sel_dedicated_codegen.NetworkAddSubnetModel() # NetworkAddSubnetModel | 
 
 try:
     # Add subnet to network
@@ -891,12 +891,12 @@ Apply Port config
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -944,14 +944,14 @@ Set Network for Port
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.PortNetworkModel() # PortNetworkModel | 
+payload = sel_dedicated_codegen.PortNetworkModel() # PortNetworkModel | 
 
 try:
     # Set Network for Port
@@ -998,14 +998,14 @@ Update network
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.NetworkUpdateModel() # NetworkUpdateModel | 
+payload = sel_dedicated_codegen.NetworkUpdateModel() # NetworkUpdateModel | 
 
 try:
     # Update network
@@ -1053,14 +1053,14 @@ Update Network Limit
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.NetworkManagementApi()
+api_instance = sel_dedicated_codegen.NetworkManagementApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.NetworkLimitUpdateModel() # NetworkLimitUpdateModel | 
+payload = sel_dedicated_codegen.NetworkLimitUpdateModel() # NetworkLimitUpdateModel | 
 
 try:
     # Update Network Limit

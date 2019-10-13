@@ -5,7 +5,7 @@
 
 from __future__ import absolute_import
 
-from sel_dedicated_client.api_client import ApiClient as _Base
+from sel_dedicated_codegen.api_client import ApiClient as _Base
 
 
 class ApiClient(_Base):

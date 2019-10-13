@@ -1,4 +1,4 @@
-# sel_dedicated_client.TasksApi
+# sel_dedicated_codegen.TasksApi
 
 All URIs are relative to *https://api.selectel.ru/servers/v2*
 
@@ -17,12 +17,12 @@ Show task details
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.TasksApi()
+api_instance = sel_dedicated_codegen.TasksApi()
 uuid = 'uuid_example' # str | 
 
 try:
