@@ -1,0 +1,13 @@
+# PricePlanModel
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**uuid** | **str** |  | 
+**name** | **str** |  | 
+**type** | **str** |  | 
+**period** | **int** |  | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
