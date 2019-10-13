@@ -27,7 +27,7 @@
 from sel_dedicated.configuration import Configuration
 from sel_dedicated.api_client import ApiClient
 
-import sel_dedicated_client as dedic
+import sel_dedicated_codegen as dedic
 
 def get_config():
     cfg = Configuration()
@@ -62,7 +62,7 @@ if __name__=="__main__":
 from sel_dedicated.configuration import Configuration
 from sel_dedicated.api_client import ApiClient
 
-import sel_dedicated_client as dedic
+import sel_dedicated_codegen as dedic
 
 def get_config():
     cfg = Configuration()

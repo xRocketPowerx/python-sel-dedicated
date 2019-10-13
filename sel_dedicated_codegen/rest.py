@@ -24,7 +24,7 @@ import six
 from six.moves.urllib.parse import urlencode
 import urllib3
 
-from sel_dedicated_client.exceptions import ApiException, ApiValueError
+from sel_dedicated_codegen.exceptions import ApiException, ApiValueError
 
 
 logger = logging.getLogger(__name__)

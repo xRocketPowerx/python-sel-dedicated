@@ -1,4 +1,4 @@
-# sel_dedicated_client.PowerManagerApi
+# sel_dedicated_codegen.PowerManagerApi
 
 All URIs are relative to *https://api.selectel.ru/servers/v2*
 
@@ -21,12 +21,12 @@ Show server console
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.PowerManagerApi()
+api_instance = sel_dedicated_codegen.PowerManagerApi()
 resource_uuid = 'resource_uuid_example' # str | 
 
 try:
@@ -73,12 +73,12 @@ Show server power state
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.PowerManagerApi()
+api_instance = sel_dedicated_codegen.PowerManagerApi()
 resource_uuid = 'resource_uuid_example' # str | 
 
 try:
@@ -125,14 +125,14 @@ Set server console resolution
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.PowerManagerApi()
+api_instance = sel_dedicated_codegen.PowerManagerApi()
 resource_uuid = 'resource_uuid_example' # str | 
-payload = sel_dedicated_client.ConsoleResolution() # ConsoleResolution | 
+payload = sel_dedicated_codegen.ConsoleResolution() # ConsoleResolution | 
 
 try:
     # Set server console resolution
@@ -179,14 +179,14 @@ Reboot server
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.PowerManagerApi()
+api_instance = sel_dedicated_codegen.PowerManagerApi()
 resource_uuid = 'resource_uuid_example' # str | 
-payload = sel_dedicated_client.PowerReboot() # PowerReboot | 
+payload = sel_dedicated_codegen.PowerReboot() # PowerReboot | 
 
 try:
     # Reboot server
@@ -233,14 +233,14 @@ Set server power state
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.PowerManagerApi()
+api_instance = sel_dedicated_codegen.PowerManagerApi()
 resource_uuid = 'resource_uuid_example' # str | 
-payload = sel_dedicated_client.PowerSwitchStatus() # PowerSwitchStatus | 
+payload = sel_dedicated_codegen.PowerSwitchStatus() # PowerSwitchStatus | 
 
 try:
     # Set server power state

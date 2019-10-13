@@ -1,4 +1,4 @@
-# sel_dedicated_client.MiscellaneousApi
+# sel_dedicated_codegen.MiscellaneousApi
 
 All URIs are relative to *https://api.selectel.ru/servers/v2*
 
@@ -28,12 +28,12 @@ Delete user name
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.MiscellaneousApi()
+api_instance = sel_dedicated_codegen.MiscellaneousApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -80,12 +80,12 @@ Get list of name's tags
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.MiscellaneousApi()
+api_instance = sel_dedicated_codegen.MiscellaneousApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -132,12 +132,12 @@ Get name data
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.MiscellaneousApi()
+api_instance = sel_dedicated_codegen.MiscellaneousApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -184,12 +184,12 @@ Get name list
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.MiscellaneousApi()
+api_instance = sel_dedicated_codegen.MiscellaneousApi()
 tags = ['tags_example'] # list[str] | tags (optional)
 limit = 10 # int |  (optional) (default to 10)
 page = 1 # int |  (optional) (default to 1)
@@ -244,12 +244,12 @@ Get random name
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.MiscellaneousApi()
+api_instance = sel_dedicated_codegen.MiscellaneousApi()
 get_user_name = False # bool | flag: need to return one of user's name (optional) (default to False)
 tags = ['tags_example'] # list[str] | tags (optional)
 
@@ -298,12 +298,12 @@ Get list of tag's names
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.MiscellaneousApi()
+api_instance = sel_dedicated_codegen.MiscellaneousApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -350,12 +350,12 @@ Get tag data
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.MiscellaneousApi()
+api_instance = sel_dedicated_codegen.MiscellaneousApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -402,12 +402,12 @@ Get tag list
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.MiscellaneousApi()
+api_instance = sel_dedicated_codegen.MiscellaneousApi()
 limit = 10 # int |  (optional) (default to 10)
 page = 1 # int |  (optional) (default to 1)
 sort = 'created' # str |  (optional) (default to 'created')
@@ -460,12 +460,12 @@ Get user name data
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.MiscellaneousApi()
+api_instance = sel_dedicated_codegen.MiscellaneousApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -512,12 +512,12 @@ Get user name list
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.MiscellaneousApi()
+api_instance = sel_dedicated_codegen.MiscellaneousApi()
 limit = 10 # int |  (optional) (default to 10)
 page = 1 # int |  (optional) (default to 1)
 sort = 'created' # str |  (optional) (default to 'created')
@@ -570,13 +570,13 @@ Create new user name
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.MiscellaneousApi()
-payload = sel_dedicated_client.UserNameAdd() # UserNameAdd | 
+api_instance = sel_dedicated_codegen.MiscellaneousApi()
+payload = sel_dedicated_codegen.UserNameAdd() # UserNameAdd | 
 
 try:
     # Create new user name
@@ -622,14 +622,14 @@ Update user name data
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.MiscellaneousApi()
+api_instance = sel_dedicated_codegen.MiscellaneousApi()
 uuid = 'uuid_example' # str | 
-payload = sel_dedicated_client.UserNameUpdate() # UserNameUpdate | 
+payload = sel_dedicated_codegen.UserNameUpdate() # UserNameUpdate | 
 
 try:
     # Update user name data

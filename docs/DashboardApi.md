@@ -1,4 +1,4 @@
-# sel_dedicated_client.DashboardApi
+# sel_dedicated_codegen.DashboardApi
 
 All URIs are relative to *https://api.selectel.ru/servers/v2*
 
@@ -18,12 +18,12 @@ Get current active tasks
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.DashboardApi()
+api_instance = sel_dedicated_codegen.DashboardApi()
 
 try:
     # Get current active tasks
@@ -66,12 +66,12 @@ Get current maintenance status
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.DashboardApi()
+api_instance = sel_dedicated_codegen.DashboardApi()
 
 try:
     # Get current maintenance status

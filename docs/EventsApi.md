@@ -1,4 +1,4 @@
-# sel_dedicated_client.EventsApi
+# sel_dedicated_codegen.EventsApi
 
 All URIs are relative to *https://api.selectel.ru/servers/v2*
 
@@ -17,12 +17,12 @@ List events
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.EventsApi()
+api_instance = sel_dedicated_codegen.EventsApi()
 action_name = 'action_name_example' # str | Action name (optional)
 item_name = 'item_name_example' # str | Item name (optional)
 item_uuid = 'item_uuid_example' # str | Items per page (optional)

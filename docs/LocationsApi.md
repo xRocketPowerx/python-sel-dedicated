@@ -1,4 +1,4 @@
-# sel_dedicated_client.LocationsApi
+# sel_dedicated_codegen.LocationsApi
 
 All URIs are relative to *https://api.selectel.ru/servers/v2*
 
@@ -18,12 +18,12 @@ Show location info
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.LocationsApi()
+api_instance = sel_dedicated_codegen.LocationsApi()
 uuid = 'uuid_example' # str | 
 
 try:
@@ -70,12 +70,12 @@ List locations
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.LocationsApi()
+api_instance = sel_dedicated_codegen.LocationsApi()
 
 try:
     # List locations

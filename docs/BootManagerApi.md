@@ -1,4 +1,4 @@
-# sel_dedicated_client.BootManagerApi
+# sel_dedicated_codegen.BootManagerApi
 
 All URIs are relative to *https://api.selectel.ru/servers/v2*
 
@@ -23,12 +23,12 @@ List boot templates
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.BootManagerApi()
+api_instance = sel_dedicated_codegen.BootManagerApi()
 
 try:
     # List boot templates
@@ -71,12 +71,12 @@ Show server boot details
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.BootManagerApi()
+api_instance = sel_dedicated_codegen.BootManagerApi()
 resource_uuid = 'resource_uuid_example' # str | 
 
 try:
@@ -123,12 +123,12 @@ List OS configurations
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.BootManagerApi()
+api_instance = sel_dedicated_codegen.BootManagerApi()
 
 try:
     # List OS configurations
@@ -171,12 +171,12 @@ Show server OS details
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.BootManagerApi()
+api_instance = sel_dedicated_codegen.BootManagerApi()
 resource_uuid = 'resource_uuid_example' # str | 
 
 try:
@@ -223,14 +223,14 @@ Update OS install configuration
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.BootManagerApi()
+api_instance = sel_dedicated_codegen.BootManagerApi()
 resource_uuid = 'resource_uuid_example' # str | 
-payload = sel_dedicated_client.ReinstallInput() # ReinstallInput | 
+payload = sel_dedicated_codegen.ReinstallInput() # ReinstallInput | 
 
 try:
     # Update OS install configuration
@@ -277,14 +277,14 @@ Set server boot template
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.BootManagerApi()
+api_instance = sel_dedicated_codegen.BootManagerApi()
 resource_uuid = 'resource_uuid_example' # str | 
-payload = sel_dedicated_client.Device() # Device | 
+payload = sel_dedicated_codegen.Device() # Device | 
 
 try:
     # Set server boot template
@@ -331,14 +331,14 @@ Install server new OS configuration
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.BootManagerApi()
+api_instance = sel_dedicated_codegen.BootManagerApi()
 resource_uuid = 'resource_uuid_example' # str | 
-payload = sel_dedicated_client.OSConfigInput() # OSConfigInput | 
+payload = sel_dedicated_codegen.OSConfigInput() # OSConfigInput | 
 
 try:
     # Install server new OS configuration

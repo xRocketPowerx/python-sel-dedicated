@@ -1,4 +1,4 @@
-# sel_dedicated_client.ConsumptionApi
+# sel_dedicated_codegen.ConsumptionApi
 
 All URIs are relative to *https://api.selectel.ru/servers/v2*
 
@@ -18,12 +18,12 @@ Get Resource speed points
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ConsumptionApi()
+api_instance = sel_dedicated_codegen.ConsumptionApi()
 resource_uuid = 'resource_uuid_example' # str | 
 local = 'false' # str | Switch which port type needs to be shown (optional) (default to 'false')
 interval = 'min5' # str | Interval to group points by (optional) (default to 'min5')
@@ -78,12 +78,12 @@ Get traffic consumption
 ```python
 from __future__ import print_function
 import time
-import sel_dedicated_client
-from sel_dedicated_client.rest import ApiException
+import sel_dedicated_codegen
+from sel_dedicated_codegen.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = sel_dedicated_client.ConsumptionApi()
+api_instance = sel_dedicated_codegen.ConsumptionApi()
 resource_uuid = 'resource_uuid_example' # str | 
 month = 10 # int | month to which traffic will calculated, integer (optional) (default to 10)
 
